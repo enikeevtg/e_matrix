@@ -23,9 +23,9 @@ gost:
 
 clean:
 	rm -rf $(OBJDIR)
-	rm -f $(TARGET)
-	rm -f *.out
+	rm -rf $(TARGET)
+	rm *.out
 
 man:
-	@gcc man_tests.c src/create_matrix.c
+	@gcc man_tests.c src/*.c
 	@./a.out

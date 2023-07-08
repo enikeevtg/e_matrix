@@ -31,5 +31,7 @@ int main(int argc, char** argv) {
     printf("\n");
   }
 
+  int error = e_remove_matrix(&res);
+  printf("\nerror code: %d\n", error);
   return 0;
 }

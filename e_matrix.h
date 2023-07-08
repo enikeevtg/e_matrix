@@ -19,5 +19,6 @@ typedef struct matrix_struct {
 
 // FUNCTIONS
 int e_create_matrix(int rows, int columns, matrix_t* result);
+int e_remove_matrix(matrix_t* A);
 
 #endif  // E_MATRIX_E_MATRIX_H_
