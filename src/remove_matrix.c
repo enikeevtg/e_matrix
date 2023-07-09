@@ -9,7 +9,7 @@
 #include "../e_matrix.h"
 
 int e_remove_matrix(matrix_t* A) {
-  if (A->matrix == NULL) return INCORRECT_MATRIX;
+  if (!valid_matrix(A)) return INCORRECT_MATRIX;
   free(A->matrix);
   return OK;
 }
