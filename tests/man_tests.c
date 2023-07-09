@@ -49,11 +49,20 @@ int main(int argc, char** argv) {
   e_sum_matrix(&A, &B, &C);
   printf("matrix (A + B) =\n");
   print_matrix(&C);
+  e_remove_matrix(&C);
 
   // subtraction
   e_sub_matrix(&A, &B, &C);
   printf("matrix (A - B) =\n");
   print_matrix(&C);
+  e_remove_matrix(&C);
+
+  // multiplication by scalar
+  double scalar = -1.;
+  e_mult_number(&A, scalar, &C);
+  printf("matrix scalar * A =\n");
+  print_matrix(&C);
+  e_remove_matrix(&C);
 
   return 0;
 }
