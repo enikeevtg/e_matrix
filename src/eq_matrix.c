@@ -1,8 +1,8 @@
 /**
- * @brief
+ * @brief matrices comparison
  * @param A
  * @param B
- * @return
+ * @return error code
  */
 
 #include "../e_matrix.h"

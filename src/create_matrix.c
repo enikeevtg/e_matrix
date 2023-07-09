@@ -1,6 +1,6 @@
 /**
  * @brief matrix creating and nill-filling function
- * @warning must remove_matrix calling after working
+ * @warning must remove_matrix call after working
  * @param rows
  * @param columns
  * @param result
