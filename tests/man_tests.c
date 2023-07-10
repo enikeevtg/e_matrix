@@ -82,6 +82,7 @@ int main(int argc, char** argv) {
   }
 
   // transpose
+  printf("\ntranspose test\nA =");
   print_matrix(&A);
   printf("A^T =\n");
   if (!e_transpose(&A, &res)) {
@@ -91,7 +92,7 @@ int main(int argc, char** argv) {
   }
 
   // calc_complements
-  printf("\ncalc_complements");
+  printf("\ncalc_complements test");
   A.matrix[0][0] = 1.;
   A.matrix[0][1] = 2.;
   A.matrix[0][2] = 3.;
@@ -126,10 +127,18 @@ int main(int argc, char** argv) {
   e_remove_matrix(&res);
 
   // determinant
-  printf("\nA =\n");
+  printf("determinant test\nA =\n");
   print_matrix(&A);
   double det = 0;
   e_determinant(&A, &det);
   printf("determinant = %lf", det);
+
+  // inverse
+  printf("inverse test\nA =\n");
+  print_matrix(&A);
+  e_inverse_matrix(&A, &res);
+  printf("inverse =\n");
+  print_matrix(&res);
+
   return 0;
 }

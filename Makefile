@@ -32,6 +32,6 @@ clean:
 	rm -rf *.out *.dSYM
 
 man:
-	@gcc -g $(TESTDIR)man_tests.c $(SRC) -fsanitize=address
+	@gcc -g -fsanitize=address $(TESTDIR)man_tests.c $(SRC)
 	@./a.out
-	@rm a.out
+#	@rm a.out
