@@ -1,7 +1,7 @@
 /**
  * @brief matrices comparison
- * @param A
- * @param B
+ * @param A is matrix pointer
+ * @param B is matrix pointer
  * @return error code
  */
 

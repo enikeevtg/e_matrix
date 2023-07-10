@@ -1,8 +1,8 @@
 /**
- * @brief matrices adding
- * @param A
- * @param B
- * @param result
+ * @brief matrix multiplication by scalar
+ * @param A is matrix pointer
+ * @param number is scalar
+ * @param result is result matrix pointer
  * @return error code
  */
 

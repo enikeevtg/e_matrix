@@ -1,8 +1,8 @@
 /**
  * @brief matrices subtracting
- * @param A
- * @param B
- * @param result
+ * @param A is matrix pointer
+ * @param B is matrix pointer
+ * @param result is result matrix pointer
  * @return error code
  */
 

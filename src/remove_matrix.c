@@ -1,8 +1,6 @@
 /**
  * @brief matrix removing (memory freeing) function
- * @param rows
- * @param columns
- * @param result
+ * @param A is matrix pointer
  * @return error code
  */
 

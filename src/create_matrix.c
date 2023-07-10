@@ -3,7 +3,7 @@
  * @warning must remove_matrix call after working
  * @param rows
  * @param columns
- * @param result
+ * @param result is new matrix filled by nills
  * @return error code
  */
 

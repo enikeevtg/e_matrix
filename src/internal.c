@@ -7,7 +7,7 @@
 /// @brief matrix filling
 /// @param rows
 /// @param columns
-/// @param A
+/// @param A is matrix pointer
 /// @return error_code from create_matrix function
 int simple_filling(int rows, int columns, matrix_t* A, int mode) {
   int error_code = e_create_matrix(rows, columns, A);
@@ -24,7 +24,7 @@ int simple_filling(int rows, int columns, matrix_t* A, int mode) {
 }
 
 /// @brief matrix validity checking
-/// @param A is matrix
+/// @param A is matrix pointer
 /// @return result of checking
 int valid_matrix(matrix_t* A) {
   int valid = TRUE;
@@ -34,7 +34,7 @@ int valid_matrix(matrix_t* A) {
 
 /// @brief matrix printing function
 /// @version v.3
-/// @param A is martrix
+/// @param A is matrix pointer
 void print_matrix(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
     for (int j = 0; j < A->columns; j++) printf(" %.0lf", A->matrix[i][j]);
@@ -44,7 +44,7 @@ void print_matrix(matrix_t* A) {
 
 /// @brief matrix printing function
 /// @version v.2
-/// @param A is martrix
+/// @param A is matrix pointer
 void print_matrix_v2(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
     for (int j = 0; j < A->columns; j++)
@@ -55,7 +55,7 @@ void print_matrix_v2(matrix_t* A) {
 
 /// @brief matrix printing function
 /// @version v.1
-/// @param A is martrix
+/// @param A is matrix pointer
 void print_matrix_inline(matrix_t* A) {
   int i = A->rows * A->columns;
   while (i--) printf(" %.0lf", *(*A->matrix + i));

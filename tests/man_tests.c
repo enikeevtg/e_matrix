@@ -28,17 +28,17 @@ int main(int argc, char** argv) {
   printf("\nremoving error code: %d\n\n", error);
 
   // matrix comparison
-  int A_rows = 3;
-  int A_columns = 5;
+  int A_rows = 1;
+  int A_columns = 3;
   matrix_t A = {0};
-  simple_filling(A_rows, A_columns, &A, 2);
+  simple_filling(A_rows, A_columns, &A, 1);
   printf("matrix A =\n");
   print_matrix(&A);
 
   int B_rows = 3;
-  int B_columns = 5;
+  int B_columns = 1;
   matrix_t B = {0};
-  simple_filling(B_rows, B_columns, &B, 3);
+  simple_filling(B_rows, B_columns, &B, 1);
   printf("matrix B =\n");
   print_matrix(&B);
 
@@ -46,22 +46,31 @@ int main(int argc, char** argv) {
 
   // summation
   matrix_t C;
-  e_sum_matrix(&A, &B, &C);
   printf("matrix (A + B) =\n");
-  print_matrix(&C);
+  if (!e_sum_matrix(&A, &B, &C)) {
+    print_matrix(&C);
+  } else {
+    printf("error\n");
+  }
   e_remove_matrix(&C);
 
   // subtraction
-  e_sub_matrix(&A, &B, &C);
   printf("matrix (A - B) =\n");
-  print_matrix(&C);
+  if (!e_sub_matrix(&A, &B, &C)) {
+    print_matrix(&C);
+  } else {
+    printf("error\n");
+  }
   e_remove_matrix(&C);
 
   // multiplication by scalar
   double scalar = -1.;
-  e_mult_number(&A, scalar, &C);
-  printf("matrix scalar * A =\n");
-  print_matrix(&C);
+  printf("matrix scalar x A =\n");
+  if (!e_mult_number(&A, scalar, &C)) {
+    print_matrix(&C);
+  } else {
+    printf("error\n");
+  }
   e_remove_matrix(&C);
 
   return 0;
