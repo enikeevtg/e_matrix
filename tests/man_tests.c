@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
   int A_rows = 3;
   int A_columns = 3;
   matrix_t A = {0};
-  simple_filling(A_rows, A_columns, &A, 1);
+  simple_filling(A_rows, A_columns, &A, 0);
   printf("matrix A =\n");
   print_matrix(&A);
 
@@ -90,6 +90,15 @@ int main(int argc, char** argv) {
     printf("error\n");
   }
 
+  A.matrix[0][0] = 2.;
+  A.matrix[0][1] = 5.;
+  A.matrix[0][2] = 7.;
+  A.matrix[0][3] = 6.;
+  A.matrix[0][4] = 3.;
+  A.matrix[0][5] = 4.;
+  A.matrix[0][6] = 5.;
+  A.matrix[0][7] = -2.;
+  A.matrix[0][8] = -3.;
   // calc_complements
   printf("A =\n");
   print_matrix(&A);
@@ -98,5 +107,12 @@ int main(int argc, char** argv) {
   print_matrix(&res);
   e_remove_matrix(&res);
 
+  // determinant
+  printf("A =\n");
+
+  print_matrix(&A);
+  double det = 0;
+  e_determinant(&A, &det);
+  printf("%lf", det);
   return 0;
 }

@@ -35,6 +35,7 @@ int e_mult_number(matrix_t* A, double number, matrix_t* result);
 int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 int e_transpose(matrix_t* A, matrix_t* result);
 int e_calc_complements(matrix_t* A, matrix_t* result);
+int e_determinant(matrix_t* A, double* result);
 
 // INTERNAL
 int simple_filling(int rows, int columns, matrix_t* A, int mode);

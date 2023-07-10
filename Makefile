@@ -30,6 +30,6 @@ clean:
 	rm *.out
 
 man:
-	@gcc $(TESTDIR)man_tests.c src/*.c
+	@gcc -g $(TESTDIR)man_tests.c $(SRC)
 	@./a.out
-	@rm a.out
+#	@rm a.out

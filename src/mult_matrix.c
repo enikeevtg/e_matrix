@@ -1,13 +1,16 @@
 /**
- * @brief matrices multiplication
- * @param A matrix pointer
- * @param B matrix pointer
- * @param result result matrix pointer
- * @return error code
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
  */
 
 #include "../e_matrix.h"
 
+/// @brief matrices multiplication
+/// @version v.2
+/// @param A matrix pointer
+/// @param B matrix pointer
+/// @param result result matrix pointer
+/// @return error code
 int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->columns != B->rows) return CALCULATION_ERROR;

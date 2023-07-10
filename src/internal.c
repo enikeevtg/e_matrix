@@ -11,6 +11,10 @@
 /// @return error_code from create_matrix function
 int simple_filling(int rows, int columns, matrix_t* A, int mode) {
   int error_code = e_create_matrix(rows, columns, A);
+  if (mode == 0) {
+    int i = A->rows * A->columns;
+    while (i--) A->matrix[0][i] = i + 1;
+  }
   for (int i = 0; i < rows; i++)
     for (int j = 0; j < columns; j++) {
       if (mode == 1)
@@ -20,6 +24,7 @@ int simple_filling(int rows, int columns, matrix_t* A, int mode) {
       else if (mode == 3)
         A->matrix[i][j] = (double)(rand() % 11);
     }
+
   return error_code;
 }
 
@@ -80,6 +85,7 @@ void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
   int src_i = 0;   // src matrix inline index
   int dest_i = 0;  // dest matrix inline index
   while (src_i < src_length) {
+    // coditions versiom 1:
     if (src_i / src->columns == current_row)
       src_i += src->columns;
     else if (src_i % src->columns == current_column)
