@@ -1,17 +1,26 @@
 /**
- * @brief matrices adding
- * @param A is matrix pointer
- * @param B is matrix pointer
- * @param result is result matrix pointer
- * @return error code
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
  */
 
 #include "../e_matrix.h"
 
+/// @brief matrices adding
+/// @version v.2
+/// @param A is matrix pointer
+/// @param B is matrix pointer
+/// @param result is result matrix pointer
+/// @return error code
 int e_sum_matrix(matrix_t* A, matrix_t* B, matrix_t* result) {
   return sum_or_sub(A, B, result, SUMMATION);
 }
 
+/// @brief matrices adding
+/// @version v.2
+/// @param A is matrix pointer
+/// @param B is matrix pointer
+/// @param result is result matrix pointer
+/// @return error code
 int e_sum_matrix_v1(matrix_t* A, matrix_t* B, matrix_t* result) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->rows != B->rows || A->columns != B->columns) return CALCULATION_ERROR;

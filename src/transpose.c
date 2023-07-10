@@ -1,12 +1,14 @@
 /**
- * @brief
- * @param A is matrix pointer
- * @param result is result matrix pointer
- * @return
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
  */
 
 #include "../e_matrix.h"
 
+/// @brief matrix
+/// @param A is matrix pointer
+/// @param result is result matrix pointer
+/// @return
 int e_transpose(matrix_t* A, matrix_t* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (e_create_matrix(A->columns, A->rows, result)) return CALCULATION_ERROR;

@@ -1,14 +1,16 @@
 /**
- * @brief matrix creating and nill-filling function
- * @warning must remove_matrix call after working
- * @param rows
- * @param columns
- * @param result is new matrix filled by nills
- * @return error code
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
  */
 
 #include "../e_matrix.h"
 
+/// @brief matrix creating and nill-filling function
+/// @warning must remove_matrix call after working
+/// @param rows
+/// @param columns
+/// @param result is new matrix filled by nills
+/// @return error code
 int e_create_matrix(int rows, int columns, matrix_t* result) {
   result->matrix = NULL;
   // result->rows = 0;

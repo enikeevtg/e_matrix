@@ -1,3 +1,8 @@
+/**
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
+ */
+
 #include "../e_matrix.h"
 
 /// @brief algebraic complements matrix calculation

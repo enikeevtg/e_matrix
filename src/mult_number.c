@@ -1,13 +1,15 @@
 /**
- * @brief matrix multiplication by scalar
- * @param A is matrix pointer
- * @param number is scalar
- * @param result is result matrix pointer
- * @return error code
+ * @author T. Enikeev
+ * enikeeev.tg@gmail.com
  */
 
 #include "../e_matrix.h"
 
+/// @brief matrix multiplication by scalar
+/// @param A is matrix pointer
+/// @param number is scalar
+/// @param result is result matrix pointer
+/// @return error code
 int e_mult_number(matrix_t* A, double number, matrix_t* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;

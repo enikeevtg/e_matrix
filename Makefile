@@ -29,9 +29,9 @@ gost:
 clean:
 	rm -rf $(OBJDIR)
 	rm -rf $(TARGET)
-	rm *.out
+	rm -rf *.out *.dSYM
 
 man:
 	@gcc -g $(TESTDIR)man_tests.c $(SRC) -fsanitize=address
 	@./a.out
-#	@rm a.out
+	@rm a.out
