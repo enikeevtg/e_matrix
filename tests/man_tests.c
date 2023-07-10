@@ -81,5 +81,14 @@ int main(int argc, char** argv) {
     printf("error\n");
   }
 
+  // transpose
+  print_matrix(&A);
+  printf("A^T =\n");
+  if (!e_transpose(&A, &res)) {
+    print_matrix(&res);
+  } else {
+    printf("error\n");
+  }
+
   return 0;
 }
