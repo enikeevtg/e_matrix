@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
   int columns = 3;
   matrix_t res = {0};
   int create_error = simple_filling(rows, columns, &res, 1);
-  printf("\ncreate_matrix error code: %d\n", create_error);
+  printf("\n\033[33mcreate_matrix error code:\033[0m %d\n", create_error);
 
   // printing #1
   printf("\nprinting #1\n");
@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
   // free(res.matrix);
   // res.matrix = NULL;
   int error = e_remove_matrix(&res);
-  printf("\nremoving error code: %d\n\n", error);
+  printf("\n\033[33mremoving error code:\033[0m %d\n\n", error);
 
   // matrix comparison
   int A_rows = 3;
@@ -42,11 +42,11 @@ int main(int argc, char** argv) {
   printf("matrix B =\n");
   print_matrix(&B);
 
-  printf("equal code: %d\n\n", e_eq_matrix(&A, &B));
+  printf("\033[33mequal code:\033[0m %d\n\n", e_eq_matrix(&A, &B));
 
   // summation
   matrix_t C;
-  printf("matrix (A + B) =\n");
+  printf("\033[33mmatrix (A + B) =\033[0m\n");
   if (!e_sum_matrix(&A, &B, &C)) {
     print_matrix(&C);
   } else {
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
   e_remove_matrix(&C);
 
   // subtraction
-  printf("matrix (A - B) =\n");
+  printf("\033[33mmatrix (A - B) =\033[0m\n");
   if (!e_sub_matrix(&A, &B, &C)) {
     print_matrix(&C);
   } else {
@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
 
   // multiplication by scalar
   double scalar = -1.;
-  printf("matrix scalar x A =\n");
+  printf("\033[33mmatrix scalar x A =\033[0m\n");
   if (!e_mult_number(&A, scalar, &C)) {
     print_matrix(&C);
   } else {
@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
   e_remove_matrix(&C);
 
   // matrices multiplication
-  printf("A x B =\n");
+  printf("A x B =\033[0m\n");
   if (!e_mult_matrix(&A, &B, &C)) {
     print_matrix(&C);
   } else {
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
   }
 
   // transpose
-  printf("\ntranspose test\nA =");
+  printf("\n\033[33mtranspose test\033[0m\nA =");
   print_matrix(&A);
   printf("A^T =\n");
   if (!e_transpose(&A, &res)) {
@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
   }
 
   // calc_complements
-  printf("\ncalc_complements test");
+  printf("\n\033[33mcalc_complements test\033[0m");
   A.matrix[0][0] = 1.;
   A.matrix[0][1] = 2.;
   A.matrix[0][2] = 3.;
@@ -127,14 +127,14 @@ int main(int argc, char** argv) {
   e_remove_matrix(&res);
 
   // determinant
-  printf("determinant test\nA =\n");
+  printf("\033[33mdeterminant test\033[0m\nA =\n");
   print_matrix(&A);
   double det = 0;
   e_determinant(&A, &det);
-  printf("determinant = %lf", det);
+  printf("determinant = %lf\n", det);
 
   // inverse
-  printf("inverse test\nA =\n");
+  printf("\033[33minverse test\033[0m\nA =\n");
   print_matrix(&A);
   e_inverse_matrix(&A, &res);
   printf("inverse =\n");

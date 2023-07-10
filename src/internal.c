@@ -106,6 +106,7 @@ void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
 /// @param A matrix pointer
 void print_matrix(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
+    printf("\t");
     for (int j = 0; j < A->columns; j++) printf(" %.0lf", A->matrix[i][j]);
     printf("\n");
   }
