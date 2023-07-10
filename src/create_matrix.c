@@ -11,8 +11,8 @@
 
 int e_create_matrix(int rows, int columns, matrix_t* result) {
   result->matrix = NULL;
-  result->rows = 0;
-  result->columns = 0;
+  // result->rows = 0;
+  // result->columns = 0;
   if (rows < 1 || columns < 1) return INCORRECT_MATRIX;
 
   size_t array_size = rows * sizeof(double*) + rows * columns * sizeof(double);

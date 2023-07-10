@@ -90,5 +90,13 @@ int main(int argc, char** argv) {
     printf("error\n");
   }
 
+  // calc_complements
+  printf("A =\n");
+  print_matrix(&A);
+  printf("M =\n");
+  e_calc_complements(&A, &res);
+  print_matrix(&res);
+  e_remove_matrix(&res);
+
   return 0;
 }

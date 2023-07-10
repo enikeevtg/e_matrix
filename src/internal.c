@@ -7,7 +7,7 @@
 /// @brief matrix filling
 /// @param rows
 /// @param columns
-/// @param A is matrix pointer
+/// @param A matrix pointer
 /// @return error_code from create_matrix function
 int simple_filling(int rows, int columns, matrix_t* A, int mode) {
   int error_code = e_create_matrix(rows, columns, A);
@@ -24,7 +24,7 @@ int simple_filling(int rows, int columns, matrix_t* A, int mode) {
 }
 
 /// @brief matrix validity checking
-/// @param A is matrix pointer
+/// @param A matrix pointer
 /// @return result of checking
 int valid_matrix(matrix_t* A) {
   int valid = TRUE;
@@ -33,6 +33,12 @@ int valid_matrix(matrix_t* A) {
   return valid;
 }
 
+/// @brief summation and subtitution common function
+/// @param A matrix pointer
+/// @param B matrix pointer
+/// @param result result matrix pointer
+/// @param mode summation or subtitution toggle
+/// @return error code
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->rows != B->rows || A->columns != B->columns) return CALCULATION_ERROR;
@@ -46,10 +52,51 @@ int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
   return OK;
 }
 
+/// @brief minor filling function
+/// @param dest minor matrix
+/// @param src source matrix
+/// @param inline_position position of target element
+void minor_filling(matrix_t* dest, matrix_t* src, int inline_position) {
+  int dest_length = dest->rows * dest->columns;
+  int current_row = inline_position / src->columns;
+  int current_column = inline_position % src->columns;
+  int k = 0;  // src matrix inline index
+  for (int i = 0; i < dest_length; i++, k++) {
+    if (k % src->columns == current_column) k++;
+    if (k / src->columns == current_row) k += src->columns;
+    dest->matrix[0][i] = src->matrix[0][k];
+  }
+}
+
+/// @brief minor filling function
+/// @version v.2
+/// @param dest minor matrix
+/// @param src source matrix
+/// @param inline_position position of target element
+void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
+  int src_length = src->rows * src->columns;
+  int current_row = inline_position / src->columns;
+  int current_column = inline_position % src->columns;
+  int src_i = 0;   // src matrix inline index
+  int dest_i = 0;  // dest matrix inline index
+  while (src_i < src_length) {
+    if (src_i / src->columns == current_row)
+      src_i += src->columns;
+    else if (src_i % src->columns == current_column)
+      src_i++;
+    else {
+      *(*(dest->matrix) + dest_i) = *(*(src->matrix) + src_i);
+      dest_i++;
+      src_i++;
+    }
+  }
+  printf("M(%d, %d)\n", current_row + 1, current_column + 1);
+  print_matrix(dest);
+}
 
 /// @brief matrix printing function
 /// @version v.3
-/// @param A is matrix pointer
+/// @param A matrix pointer
 void print_matrix(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
     for (int j = 0; j < A->columns; j++) printf(" %.0lf", A->matrix[i][j]);
@@ -59,7 +106,7 @@ void print_matrix(matrix_t* A) {
 
 /// @brief matrix printing function
 /// @version v.2
-/// @param A is matrix pointer
+/// @param A matrix pointer
 void print_matrix_v2(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
     for (int j = 0; j < A->columns; j++)
@@ -70,7 +117,7 @@ void print_matrix_v2(matrix_t* A) {
 
 /// @brief matrix printing function
 /// @version v.1
-/// @param A is matrix pointer
+/// @param A matrix pointer
 void print_matrix_inline(matrix_t* A) {
   int i = A->rows * A->columns;
   while (i--) printf(" %.0lf", *(*A->matrix + i));

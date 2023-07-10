@@ -1,8 +1,8 @@
 /**
  * @brief matrices multiplication
- * @param A is matrix pointer
- * @param B is matrix pointer
- * @param result is result matrix pointer
+ * @param A matrix pointer
+ * @param B matrix pointer
+ * @param result result matrix pointer
  * @return error code
  */
 
@@ -23,7 +23,7 @@ int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result) {
   return OK;
 }
 
-/// @version v.1 
+/// @version v.1
 int e_mult_matrix_v1(matrix_t* A, matrix_t* B, matrix_t* result) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->columns != B->rows) return CALCULATION_ERROR;

@@ -1,8 +1,8 @@
 /**
- * @brief 
+ * @brief
  * @param A is matrix pointer
  * @param result is result matrix pointer
- * @return 
+ * @return
  */
 
 #include "../e_matrix.h"

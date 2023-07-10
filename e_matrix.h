@@ -34,11 +34,13 @@ int e_sub_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 int e_mult_number(matrix_t* A, double number, matrix_t* result);
 int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 int e_transpose(matrix_t* A, matrix_t* result);
+int e_calc_complements(matrix_t* A, matrix_t* result);
 
 // INTERNAL
 int simple_filling(int rows, int columns, matrix_t* A, int mode);
 int valid_matrix(matrix_t* A);
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode);
+void minor_filling(matrix_t* dest, matrix_t* src, int inline_position);
 void print_matrix(matrix_t* A);
 void print_matrix_v2(matrix_t* A);
 void print_matrix_inline(matrix_t* A);
