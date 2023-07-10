@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
   printf("\nremoving error code: %d\n\n", error);
 
   // matrix comparison
-  int A_rows = 4;
+  int A_rows = 3;
   int A_columns = 3;
   matrix_t A = {0};
   simple_filling(A_rows, A_columns, &A, 1);
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
   print_matrix(&A);
 
   int B_rows = 3;
-  int B_columns = 4;
+  int B_columns = 3;
   matrix_t B = {0};
   simple_filling(B_rows, B_columns, &B, 1);
   printf("matrix B =\n");
@@ -80,5 +80,6 @@ int main(int argc, char** argv) {
   } else {
     printf("error\n");
   }
+
   return 0;
 }

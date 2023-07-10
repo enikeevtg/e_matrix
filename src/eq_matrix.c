@@ -8,6 +8,8 @@
 #include "../e_matrix.h"
 
 int e_eq_matrix(matrix_t* A, matrix_t* B) {
+  if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
+
   int equal = SUCCESS;
   if (A->rows != B->rows || A->columns != B->columns) {
     equal = FAILURE;

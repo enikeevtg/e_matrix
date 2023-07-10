@@ -28,9 +28,24 @@ int simple_filling(int rows, int columns, matrix_t* A, int mode) {
 /// @return result of checking
 int valid_matrix(matrix_t* A) {
   int valid = TRUE;
-  if (A->matrix == NULL || A->rows < 1 || A->columns < 1) valid = FALSE;
+  if (A == NULL || A->matrix == NULL || A->rows < 1 || A->columns < 1)
+    valid = FALSE;
   return valid;
 }
+
+int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
+  if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
+  if (A->rows != B->rows || A->columns != B->columns) return CALCULATION_ERROR;
+  if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;
+
+  int i = A->rows * A->columns;
+  if (mode == SUMMATION)
+    while (i--) result->matrix[0][i] = A->matrix[0][i] + B->matrix[0][i];
+  else if (mode == SUBTRACTION)
+    while (i--) result->matrix[0][i] = A->matrix[0][i] - B->matrix[0][i];
+  return OK;
+}
+
 
 /// @brief matrix printing function
 /// @version v.3
