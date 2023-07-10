@@ -73,5 +73,12 @@ int main(int argc, char** argv) {
   }
   e_remove_matrix(&C);
 
+  // matrices multiplication
+  printf("A x B =\n");
+  if (!e_mult_matrix(&A, &B, &C)) {
+    print_matrix(&C);
+  } else {
+    printf("error\n");
+  }
   return 0;
 }

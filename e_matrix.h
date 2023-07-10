@@ -29,6 +29,7 @@ int e_eq_matrix(matrix_t* A, matrix_t* B);
 int e_sum_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 int e_sub_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 int e_mult_number(matrix_t* A, double number, matrix_t* result);
+int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result);
 
 // INTERNAL
 int simple_filling(int rows, int columns, matrix_t* A, int mode);
