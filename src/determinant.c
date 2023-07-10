@@ -12,7 +12,7 @@
 /// @param A square matrix pointer
 /// @param result deteminant of matrix
 /// @return error code
-int e_determinant(matrix_t *A, double *result) {
+int e_determinant(matrix_t* A, double* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;
   int error = OK;

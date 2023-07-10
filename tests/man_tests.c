@@ -90,6 +90,24 @@ int main(int argc, char** argv) {
     printf("error\n");
   }
 
+  // calc_complements
+  printf("\ncalc_complements");
+  A.matrix[0][0] = 1.;
+  A.matrix[0][1] = 2.;
+  A.matrix[0][2] = 3.;
+  A.matrix[0][3] = 0.;
+  A.matrix[0][4] = 4.;
+  A.matrix[0][5] = 2.;
+  A.matrix[0][6] = 5.;
+  A.matrix[0][7] = 2.;
+  A.matrix[0][8] = 1.;
+  printf("\ntest #1\nA =\n");
+  print_matrix(&A);
+  printf("M. =\n");
+  e_calc_complements(&A, &res);
+  print_matrix(&res);
+  e_remove_matrix(&res);
+
   A.matrix[0][0] = 2.;
   A.matrix[0][1] = 5.;
   A.matrix[0][2] = 7.;
@@ -100,19 +118,18 @@ int main(int argc, char** argv) {
   A.matrix[0][7] = -2.;
   A.matrix[0][8] = -3.;
   // calc_complements
-  printf("A =\n");
+  printf("\ntest #2\nA =\n");
   print_matrix(&A);
-  printf("M =\n");
+  printf("M. =\n");
   e_calc_complements(&A, &res);
   print_matrix(&res);
   e_remove_matrix(&res);
 
   // determinant
-  printf("A =\n");
-
+  printf("\nA =\n");
   print_matrix(&A);
   double det = 0;
   e_determinant(&A, &det);
-  printf("%lf", det);
+  printf("determinant = %lf", det);
   return 0;
 }

@@ -4,6 +4,8 @@ AR = ar rs
 
 # UTILITIES OPTIONS
 CF = -Wall -Werror -Wextra
+STD = -std=c11 -pedantic
+ASAN = -g -fsanitize=address
 
 # FILENAMES
 TARGET = e_matrix.a
@@ -30,6 +32,6 @@ clean:
 	rm *.out
 
 man:
-	@gcc -g $(TESTDIR)man_tests.c $(SRC)
+	@gcc -g $(TESTDIR)man_tests.c $(SRC) -fsanitize=address
 	@./a.out
 #	@rm a.out
