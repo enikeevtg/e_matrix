@@ -4,7 +4,7 @@
 
 /*================================error tests=================================*/
 
-START_TEST(pos_sum_matrix_INCORRECT_MATRIX) {
+START_TEST(sum_matrix_INCORRECT_MATRIX) {
   // Arrange
   // matrix A
   int rows_A = 0;
@@ -31,7 +31,7 @@ START_TEST(pos_sum_matrix_INCORRECT_MATRIX) {
 }
 END_TEST
 
-START_TEST(pos_sum_matrix_CALC_ERROR) {
+START_TEST(sum_matrix_CALC_ERROR) {
   // Arrange
   // matrix A
   int rows_A = 8;
@@ -409,8 +409,8 @@ Suite* sum_matrix(void) {
 
   TCase* sum_matrix_errors =
       tcase_create("sum_matrix with errors function tests");
-  tcase_add_test(sum_matrix_errors, pos_sum_matrix_INCORRECT_MATRIX);
-  tcase_add_test(sum_matrix_errors, pos_sum_matrix_CALC_ERROR);
+  tcase_add_test(sum_matrix_errors, sum_matrix_INCORRECT_MATRIX);
+  tcase_add_test(sum_matrix_errors, sum_matrix_CALC_ERROR);
   suite_add_tcase(s, sum_matrix_errors);
 
   TCase* sum_matrix_positive = tcase_create("sum_matrix > 0 function tests");
