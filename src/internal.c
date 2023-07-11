@@ -10,21 +10,22 @@
 /// @param columns
 /// @param A matrix pointer
 /// @return error_code from create_matrix function
-int simple_filling(int rows, int columns, matrix_t* A, int mode) {
+int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
   int error_code = e_create_matrix(rows, columns, A);
-  if (mode == 0) {
+  if (mode == SIMPLE_SEQUENCE) {
     int i = A->rows * A->columns;
     while (i--) A->matrix[0][i] = i + 1;
+  } else {
+    for (int i = 0; i < rows; i++)
+      for (int j = 0; j < columns; j++) {
+        if (mode == INDICES)
+          A->matrix[i][j] = 10 * (i + 1) + j + 1;
+        else if (mode == SQUARES)
+          A->matrix[i][j] = pow((i + j), 2);
+        else if (mode == RANDOM)
+          A->matrix[i][j] = (double)(rand() % 11);
+      }
   }
-  for (int i = 0; i < rows; i++)
-    for (int j = 0; j < columns; j++) {
-      if (mode == 1)
-        A->matrix[i][j] = 10 * (i + 1) + j + 1;
-      else if (mode == 2)
-        A->matrix[i][j] = pow((i + j), 2);
-      else if (mode == 3)
-        A->matrix[i][j] = (double)(rand() % 11);
-    }
 
   return error_code;
 }

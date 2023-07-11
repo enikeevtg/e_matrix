@@ -35,20 +35,20 @@ START_TEST(remove_matrix_INCORRECT_COLUMNS) {
 }
 END_TEST
 
-Suite* create_matrix(void) {
-  Suite* s = suite_create("create_matrix function suite");
-  TCase* create_matrix = tcase_create("create_matrix function tests");
+Suite* remove_matrix(void) {
+  Suite* s = suite_create("remove_matrix function suite");
+  TCase* remove_matrix = tcase_create("remove_matrix function tests");
 
-  tcase_add_test(create_matrix, remove_matrix_OK);
-  tcase_add_test(create_matrix, remove_matrix_INCORRECT_ROWS);
-  tcase_add_test(create_matrix, remove_matrix_INCORRECT_COLUMNS);
-  suite_add_tcase(s, create_matrix);
+  tcase_add_test(remove_matrix, remove_matrix_OK);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_ROWS);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_COLUMNS);
+  suite_add_tcase(s, remove_matrix);
 
   return s;
 }
 
 int main(void) {
-  Suite* remove_matrix_suite = create_matrix();
+  Suite* remove_matrix_suite = remove_matrix();
   SRunner* runner = srunner_create(remove_matrix_suite);
 
   srunner_run_all(runner, CK_NORMAL);

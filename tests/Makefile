@@ -8,7 +8,7 @@ TEST_FLAGS = -lcheck
 
 # FILENAMES
 LIB = ../e_matrix.a
-TEST_TARGETS = create_matrix_test remove_matrix_test
+TEST_TARGETS = create_matrix_test remove_matrix_test eq_matrix_test
 
 ### log file
 LOG = __test__e_matrix.log
@@ -38,6 +38,16 @@ create_matrix_test: create_matrix_test.c
 ut_remove: log_remove remove_matrix_test
 
 remove_matrix_test: remove_matrix_test.c
+	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
+	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
+	@./$@ $(WRITELOG)
+	@$(OPENLOG)
+	@rm -f $@
+
+### remove_matrix test
+ut_eq: log_remove eq_matrix_test
+
+eq_matrix_test: eq_matrix_test.c
 	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
 	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
 	@./$@ $(WRITELOG)

@@ -48,6 +48,9 @@ ut_create:
 ut_remove:
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_eq:
+	$(MAKE) -C $(TESTDIR) $@
+
 # SERVICE
 style:
 	clang-format --style=google -n e_matrix.h $(SRC) $(TESTDIR)*.c
@@ -56,9 +59,9 @@ gost:
 	clang-format --style=google -i e_matrix.h $(SRC) $(TESTDIR)*.c
 
 clean:
-	rm -rf $(OBJDIR)
-	rm -rf $(TARGET)
-	rm -rf *.out *.dSYM
+	@rm -rf $(OBJDIR)
+	@rm -rf $(TARGET)
+	@rm -rf *.out *.dSYM
 
 man:
 	@gcc $(ASAN) $(TESTDIR)man_tests.c $(TARGET)

@@ -26,6 +26,12 @@ typedef struct matrix_struct {
 #define SUMMATION 1
 #define SUBTRACTION -1
 
+// filling modes
+#define SIMPLE_SEQUENCE 0
+#define INDICES 1
+#define SQUARES 2
+#define RANDOM 3
+
 // FUNCTIONS
 int e_create_matrix(int rows, int columns, matrix_t* result);
 int e_remove_matrix(matrix_t* A);
@@ -40,7 +46,7 @@ int e_determinant(matrix_t* A, double* result);
 int e_inverse_matrix(matrix_t* A, matrix_t* result);
 
 // INTERNAL
-int simple_filling(int rows, int columns, matrix_t* A, int mode);
+int matrix_filling(int rows, int columns, matrix_t* A, int mode);
 int valid_matrix(matrix_t* A);
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode);
 void minor_filling(matrix_t* dest, matrix_t* src, int inline_position);
