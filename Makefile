@@ -42,6 +42,9 @@ OBJ_SUCCESS:
 test: lib
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_create:
+	$(MAKE) -C $(TESTDIR) $@
+
 
 # SERVICE
 style:
