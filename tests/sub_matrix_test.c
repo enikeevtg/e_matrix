@@ -8,19 +8,19 @@ START_TEST(sub_sqr_matrix_OK) {
   int rows_A = 11;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE_PLUS);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE_X2);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // matrix sub_AB
   matrix_t test_matrix_SUB = {0};
   // matrix reference
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t test_matrix_REF = {0};
-  matrix_filling(rows_REF, cols_REF, &test_matrix_REF, SIMPLE_SEQUENCE);
+  matrix_filling(rows_REF, cols_REF, &test_matrix_REF, POS_SIMPLE_SEQUENCE);
 
   // Act
   e_sub_matrix(&test_matrix_A, &test_matrix_B, &test_matrix_SUB);
@@ -42,19 +42,19 @@ START_TEST(sub_rect_matrix_OK) {
   int rows_A = 8;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE_PLUS);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE_X2);
   // matrix B
   int rows_B = 8;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // matrix sub_AB
   matrix_t test_matrix_SUB = {0};
   // matrix reference
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t test_matrix_REF = {0};
-  matrix_filling(rows_REF, cols_REF, &test_matrix_REF, SIMPLE_SEQUENCE);
+  matrix_filling(rows_REF, cols_REF, &test_matrix_REF, POS_SIMPLE_SEQUENCE);
 
   // Act
   e_sub_matrix(&test_matrix_A, &test_matrix_B, &test_matrix_SUB);
@@ -76,12 +76,12 @@ START_TEST(sub_matrix_INCORRECT_MATRIX) {
   int rows_A = 0;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // matrix sub_AB
   matrix_t test_matrix_SUB = {0};
 
@@ -103,12 +103,12 @@ START_TEST(sub_matrix_CALC_ERROR) {
   int rows_A = 8;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // matrix sub_AB
   matrix_t test_matrix_SUB = {0};
 

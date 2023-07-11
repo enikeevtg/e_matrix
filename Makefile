@@ -1,3 +1,4 @@
+.PHONY: all clean lib e_matrix.a test gcov_report
 # UTILITIES
 CC = gcc
 AR = ar rs
@@ -18,6 +19,7 @@ OBJDIR = ./obj/
 OBJ = $(patsubst $(SRCDIR)%.c, $(OBJDIR)%.o, $(SRC))
 TESTDIR = ./tests/
 
+all: lib test gcov_report
 
 # LIBRARY BUILDING
 lib: clean $(TARGET)

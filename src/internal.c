@@ -12,12 +12,18 @@
 /// @return error_code from create_matrix function
 int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
   int error_code = e_create_matrix(rows, columns, A);
-  if (mode == SIMPLE_SEQUENCE) {
+  if (mode == POS_SIMPLE_SEQUENCE) {
     int i = A->rows * A->columns;
     while (i--) A->matrix[0][i] = i + 1;
-  } else if (mode == SIMPLE_SEQUENCE_PLUS) {
+  } else if (mode == NEG_SIMPLE_SEQUENCE) {
+    int i = -A->rows * A->columns;
+    while (i++) A->matrix[0][-i] = i - 1;
+  } else if (mode == POS_SIMPLE_SEQUENCE_X2) {
     int i = A->rows * A->columns;
     while (i--) A->matrix[0][i] = 2 * (i + 1);
+  } else if (mode == NEG_SIMPLE_SEQUENCE_X2) {
+    int i = -A->rows * A->columns;
+    while (i++) A->matrix[0][-i] = 2 * (i - 1);
   } else {
     for (int i = 0; i < rows; i++)
       for (int j = 0; j < columns; j++) {

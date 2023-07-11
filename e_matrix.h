@@ -27,11 +27,13 @@ typedef struct matrix_struct {
 #define SUBTRACTION -1
 
 // filling modes
-#define SIMPLE_SEQUENCE 0
-#define SIMPLE_SEQUENCE_PLUS 20
-#define INDICES 1
+#define NEG_SIMPLE_SEQUENCE_X2 -20
+#define NEG_SIMPLE_SEQUENCE -1
+#define POS_SIMPLE_SEQUENCE 1
+#define POS_SIMPLE_SEQUENCE_X2 20
 #define SQUARES 2
-#define RANDOM 3
+#define INDICES 3
+#define RANDOM 4
 
 // FUNCTIONS
 int e_create_matrix(int rows, int columns, matrix_t* result);

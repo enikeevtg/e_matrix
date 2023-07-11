@@ -8,12 +8,12 @@ START_TEST(eq_matrix_SUCCESS) {
   int rows_A = 11;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // Act
   int match = e_eq_matrix(&test_matrix_A, &test_matrix_B);
   // Assert
@@ -29,12 +29,12 @@ START_TEST(eq_matrix_FAILURE_ROWS) {
   int rows_A = 1;
   int cols_A = 11;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // Act
   int match = e_eq_matrix(&test_matrix_A, &test_matrix_B);
   // Assert
@@ -50,12 +50,12 @@ START_TEST(eq_matrix_FAILURE_COLUMNS) {
   int rows_A = 11;
   int cols_A = 1;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 11;
   int cols_B = 11;
   matrix_t test_matrix_B = {0};
-  matrix_filling(rows_B, cols_B, &test_matrix_B, SIMPLE_SEQUENCE);
+  matrix_filling(rows_B, cols_B, &test_matrix_B, POS_SIMPLE_SEQUENCE);
   // Act
   int match = e_eq_matrix(&test_matrix_A, &test_matrix_B);
   // Assert
@@ -71,7 +71,7 @@ START_TEST(eq_matrix_FAILURE) {
   int rows_A = 8;
   int cols_A = 8;
   matrix_t test_matrix_A = {0};
-  matrix_filling(rows_A, cols_A, &test_matrix_A, SIMPLE_SEQUENCE);
+  matrix_filling(rows_A, cols_A, &test_matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B
   int rows_B = 8;
   int cols_B = 8;
