@@ -45,6 +45,8 @@ test: lib
 ut_create:
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_remove:
+	$(MAKE) -C $(TESTDIR) $@
 
 # SERVICE
 style:
@@ -59,7 +61,7 @@ clean:
 	rm -rf *.out *.dSYM
 
 man:
-	@gcc -g -fsanitize=address $(TESTDIR)man_tests.c $(TARGET)
+	@gcc $(ASAN) $(TESTDIR)man_tests.c $(TARGET)
 	@echo "\033[32m"
 	@date +"%T"
 	@echo "manual tests start\033[0m"
