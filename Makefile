@@ -54,6 +54,9 @@ ut_eq: lib
 ut_sum: lib
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_sub: lib
+	$(MAKE) -C $(TESTDIR) $@
+
 
 # SERVICE
 style:
