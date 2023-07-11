@@ -42,14 +42,18 @@ OBJ_SUCCESS:
 test: lib
 	$(MAKE) -C $(TESTDIR) $@
 
-ut_create:
+ut_create: lib
 	$(MAKE) -C $(TESTDIR) $@
 
-ut_remove:
+ut_remove: lib
 	$(MAKE) -C $(TESTDIR) $@
 
-ut_eq:
+ut_eq: lib
 	$(MAKE) -C $(TESTDIR) $@
+
+ut_sum: lib
+	$(MAKE) -C $(TESTDIR) $@
+
 
 # SERVICE
 style:

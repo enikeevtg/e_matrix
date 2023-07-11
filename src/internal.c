@@ -15,6 +15,9 @@ int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
   if (mode == SIMPLE_SEQUENCE) {
     int i = A->rows * A->columns;
     while (i--) A->matrix[0][i] = i + 1;
+  } else if (mode == SIMPLE_SEQUENCE_PLUS) {
+    int i = A->rows * A->columns;
+    while (i--) A->matrix[0][i] = 2 * (i + 1);
   } else {
     for (int i = 0; i < rows; i++)
       for (int j = 0; j < columns; j++) {

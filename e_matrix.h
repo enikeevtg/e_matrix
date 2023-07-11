@@ -28,6 +28,7 @@ typedef struct matrix_struct {
 
 // filling modes
 #define SIMPLE_SEQUENCE 0
+#define SIMPLE_SEQUENCE_PLUS 20
 #define INDICES 1
 #define SQUARES 2
 #define RANDOM 3
