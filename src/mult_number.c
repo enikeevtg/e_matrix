@@ -9,7 +9,7 @@
 /// @param A is matrix pointer
 /// @param number is scalar
 /// @param result is result matrix pointer
-/// @return error code
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_mult_number(matrix_t* A, double number, matrix_t* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;

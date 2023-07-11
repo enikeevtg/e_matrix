@@ -56,9 +56,9 @@ clean:
 	rm -rf *.out *.dSYM
 
 man:
-	@echo "\033[32mmanual tests start:"
-	@date +"%T"
-	@echo "\033[0m"
 	@gcc -g -fsanitize=address $(TESTDIR)man_tests.c $(TARGET)
+	@echo "\033[32m"
+	@date +"%T"
+	@echo "manual tests start\033[0m"
 	@./a.out
 	@rm -rf a.out *.dSYM

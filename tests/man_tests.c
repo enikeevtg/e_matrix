@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
   e_remove_matrix(&C);
 
   // multiplication by scalar
-  double scalar = -1.;
+  double scalar = -1.f;
   printf("\033[33mmatrix scalar x A =\033[0m\n");
   if (!e_mult_number(&A, scalar, &C)) {
     print_matrix(&C);
@@ -93,15 +93,15 @@ int main(int argc, char** argv) {
 
   // calc_complements
   printf("\n\033[33mcalc_complements test\033[0m");
-  A.matrix[0][0] = 1.;
-  A.matrix[0][1] = 2.;
-  A.matrix[0][2] = 3.;
-  A.matrix[0][3] = 0.;
-  A.matrix[0][4] = 4.;
-  A.matrix[0][5] = 2.;
-  A.matrix[0][6] = 5.;
-  A.matrix[0][7] = 2.;
-  A.matrix[0][8] = 1.;
+  A.matrix[0][0] = 1.f;
+  A.matrix[0][1] = 2.f;
+  A.matrix[0][2] = 3.f;
+  A.matrix[0][3] = 0.f;
+  A.matrix[0][4] = 4.f;
+  A.matrix[0][5] = 2.f;
+  A.matrix[0][6] = 5.f;
+  A.matrix[0][7] = 2.f;
+  A.matrix[0][8] = 1.f;
   printf("\ntest #1\nA =\n");
   print_matrix(&A);
   printf("M. =\n");
@@ -109,15 +109,15 @@ int main(int argc, char** argv) {
   print_matrix(&res);
   e_remove_matrix(&res);
 
-  A.matrix[0][0] = 2.;
-  A.matrix[0][1] = 5.;
-  A.matrix[0][2] = 7.;
-  A.matrix[0][3] = 6.;
-  A.matrix[0][4] = 3.;
-  A.matrix[0][5] = 4.;
-  A.matrix[0][6] = 5.;
-  A.matrix[0][7] = -2.;
-  A.matrix[0][8] = -3.;
+  A.matrix[0][0] = 2.f;
+  A.matrix[0][1] = 5.f;
+  A.matrix[0][2] = 7.f;
+  A.matrix[0][3] = 6.f;
+  A.matrix[0][4] = 3.f;
+  A.matrix[0][5] = 4.f;
+  A.matrix[0][6] = 5.f;
+  A.matrix[0][7] = -2.f;
+  A.matrix[0][8] = -3.f;
   // calc_complements
   printf("\ntest #2\nA =\n");
   print_matrix(&A);

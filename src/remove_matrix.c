@@ -7,7 +7,7 @@
 
 /// @brief matrix removing (memory freeing) function
 /// @param A matrix pointer
-/// @return error code
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_remove_matrix(matrix_t* A) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   free(A->matrix);

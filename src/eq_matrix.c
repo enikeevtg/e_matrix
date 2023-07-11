@@ -6,9 +6,9 @@
 #include "../e_matrix.h"
 
 /// @brief matrices comparison
-/// @param A is matrix pointer
-/// @param B is matrix pointer
-/// @return error code
+/// @param A matrix pointer
+/// @param B matrix pointer
+/// @return comparison code: SUCCESS - 1, FAILURE - 0
 int e_eq_matrix(matrix_t* A, matrix_t* B) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
 
@@ -18,7 +18,7 @@ int e_eq_matrix(matrix_t* A, matrix_t* B) {
   } else {
     int i = A->rows * A->columns;
     while (i-- && equal)
-      if (A->matrix[0][i] != B->matrix[0][i]) equal = FAILURE;
+      if (fabs(A->matrix[0][i] - B->matrix[0][i]) > PRECISION) equal = FAILURE;
   }
   return equal;
 }

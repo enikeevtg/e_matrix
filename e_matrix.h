@@ -17,6 +17,7 @@ typedef struct matrix_struct {
 #define OK 0
 #define INCORRECT_MATRIX 1
 #define CALCULATION_ERROR 2
+#define PRECISION 0.0000001
 #define SUCCESS 1
 #define FAILURE 0
 #define TRUE 1

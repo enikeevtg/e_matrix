@@ -9,8 +9,8 @@
 /// @warning must remove_matrix call after working
 /// @param rows
 /// @param columns
-/// @param result is new matrix filled by nills
-/// @return error code
+/// @param result new matrix filled by nills
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_create_matrix(int rows, int columns, matrix_t* result) {
   result->matrix = NULL;
   // result->rows = 0;

@@ -33,7 +33,7 @@ int e_calc_complements(matrix_t* A, matrix_t* result) {
 /// @version v.1
 /// @param A matrix pointer
 /// @param result result matrix pointer
-/// @return error code
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_calc_complements_v1(matrix_t* A, matrix_t* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;

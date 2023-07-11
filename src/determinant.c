@@ -11,7 +11,7 @@
 /// [a1j] x [M.j]^T
 /// @param A square matrix pointer
 /// @param result deteminant of matrix
-/// @return error code
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_determinant(matrix_t* A, double* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;

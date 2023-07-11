@@ -5,10 +5,10 @@
 
 #include "../e_matrix.h"
 
-/// @brief matrix
-/// @param A is matrix pointer
-/// @param result is result matrix pointer
-/// @return error code
+/// @brief matrix transpose function
+/// @param A matrix pointer
+/// @param result result matrix pointer
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 /// @warning A and result must be in different memory parts allocated
 int e_transpose(matrix_t* A, matrix_t* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;

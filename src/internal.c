@@ -31,7 +31,7 @@ int simple_filling(int rows, int columns, matrix_t* A, int mode) {
 
 /// @brief matrix validity checking
 /// @param A matrix pointer
-/// @return result of checking
+/// @return result of checking: valid matrix - TRUE 1, invalid matrix - FALSE 0
 int valid_matrix(matrix_t* A) {
   int valid = TRUE;
   if (A == NULL || A->matrix == NULL || A->rows < 1 || A->columns < 1)
@@ -44,7 +44,7 @@ int valid_matrix(matrix_t* A) {
 /// @param B matrix pointer
 /// @param result result matrix pointer
 /// @param mode summation or subtitution toggle
-/// @return error code
+/// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->rows != B->rows || A->columns != B->columns) return CALCULATION_ERROR;
@@ -86,7 +86,7 @@ void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
   int src_i = 0;   // src matrix inline index
   int dest_i = 0;  // dest matrix inline index
   while (src_i < src_length) {
-    // coditions versiom 1:
+    // coditions version 1:
     if (src_i / src->columns == current_row)
       src_i += src->columns;
     else if (src_i % src->columns == current_column)
