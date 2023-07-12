@@ -35,7 +35,6 @@ int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
           A->matrix[i][j] = (double)(rand() % 11);
       }
   }
-
   return error_code;
 }
 

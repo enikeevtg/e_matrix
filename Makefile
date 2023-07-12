@@ -72,7 +72,7 @@ clean:
 	@rm -rf $(TARGET)
 	@rm -rf *.out *.dSYM
 
-man:
+man: lib
 	@gcc $(ASAN) $(TESTDIR)man_tests.c $(TARGET)
 	@echo "\033[32m"
 	@date +"%T"

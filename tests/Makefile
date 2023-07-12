@@ -9,7 +9,7 @@ TEST_FLAGS = -lcheck
 # FILENAMES
 LIB = ../e_matrix.a
 TEST_TARGETS = create_matrix_test remove_matrix_test eq_matrix_test
-TEST_TARGETS += sum_matrix_test
+TEST_TARGETS += sum_matrix_test sub_matrix_test
 
 ### log file
 LOG = __test__e_matrix.log

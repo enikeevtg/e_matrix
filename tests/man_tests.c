@@ -132,6 +132,14 @@ int main(int argc, char** argv) {
   double det = 0;
   e_determinant(&A, &det);
   printf("determinant = %lf\n", det);
+  e_remove_matrix(&A);
+
+  printf("A =\n");
+  e_create_matrix(1, 1, &A);
+  **A.matrix = 2;
+  print_matrix(&A);
+  e_determinant(&A, &det);
+  printf("determinant = %lf\n", det);
 
   // inverse
   printf("\033[33minverse test\033[0m\nA =\n");
@@ -140,5 +148,9 @@ int main(int argc, char** argv) {
   printf("inverse =\n");
   print_matrix(&res);
 
+  e_remove_matrix(&A);
+  e_remove_matrix(&B);
+  e_remove_matrix(&C);
+  e_remove_matrix(&res);
   return 0;
 }
