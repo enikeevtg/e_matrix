@@ -2,7 +2,7 @@
 
 #include "../e_matrix.h"
 
-START_TEST(create_matrix_NULL_POINTER) {
+START_TEST(create_matrix_INCORRECT_STRUCT) {
   // Arrange
   int rows = 11;
   int cols = 1;
@@ -60,7 +60,7 @@ Suite* create_matrix(void) {
   Suite* s = suite_create("create_matrix function suite");
 
   TCase* create_matrix = tcase_create("create_matrix function tests");
-  tcase_add_test(create_matrix, create_matrix_NULL_POINTER);
+  tcase_add_test(create_matrix, create_matrix_INCORRECT_STRUCT);
   tcase_add_test(create_matrix, create_matrix_INCORRECT_ROWS);
   tcase_add_test(create_matrix, create_matrix_INCORRECT_COLUMNS);
   tcase_add_test(create_matrix, create_matrix_OK);

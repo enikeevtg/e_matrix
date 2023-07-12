@@ -59,6 +59,8 @@ ut_sum: lib
 ut_sub: lib
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_scalex: lib
+	$(MAKE) -C $(TESTDIR) $@
 
 # SERVICE
 style:

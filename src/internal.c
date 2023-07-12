@@ -19,7 +19,7 @@ void matrix_init(matrix_t* A) {
 /// @param A matrix pointer
 /// @return error_code from create_matrix function
 int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
-  int error_code = e_create_matrix(rows, columns, A);
+  int error = e_create_matrix(rows, columns, A);
   if (mode == POS_SIMPLE_SEQUENCE) {
     int i = A->rows * A->columns;
     while (i--) A->matrix[0][i] = i + 1;
@@ -43,7 +43,7 @@ int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
           A->matrix[i][j] = (double)(rand() % 11);
       }
   }
-  return error_code;
+  return error;
 }
 
 /// @brief matrix validity checking

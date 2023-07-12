@@ -6,9 +6,9 @@
 #include "../e_matrix.h"
 
 /// @brief matrix multiplication by scalar
-/// @param A is matrix pointer
-/// @param number is scalar
-/// @param result is result matrix pointer
+/// @param A matrix pointer
+/// @param number scalar
+/// @param result result matrix pointer
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_mult_number(matrix_t* A, double number, matrix_t* result) {
   matrix_init(result);
