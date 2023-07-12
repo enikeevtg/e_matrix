@@ -53,7 +53,7 @@ void matrix_init(matrix_t* A);
 int matrix_filling(int rows, int columns, matrix_t* A, int mode);
 int valid_matrix(matrix_t* A);
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode);
-void minor_filling(matrix_t* dest, matrix_t* src, int inline_position);
+int create_minor(matrix_t* dest, matrix_t* src, int inline_position);
 void print_matrix(matrix_t* A);
 void print_matrix_v2(matrix_t* A);
 void print_matrix_inline(matrix_t* A);

@@ -5,6 +5,8 @@
 
 #include "../e_matrix.h"
 
+/// @brief matrix structure initialization by nill values
+/// @param A matrix pointer
 void matrix_init(matrix_t* A) {
   A->matrix = NULL;
   A->rows = 0;
@@ -74,11 +76,35 @@ int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
   return OK;
 }
 
+/// @brief minor creating function
+/// @version v.3
+/// @param minor minor matrix
+/// @param A source matrix
+/// @param inline_position position of target element
+int create_minor(matrix_t* minor, matrix_t* A, int inline_position) {
+  int size = A->rows - 1;
+  int error = e_create_matrix(size, size, minor);
+
+  if (!error) {
+    int minor_length = minor->rows * minor->columns;
+    int current_row = inline_position / A->columns;
+    int current_column = inline_position % A->columns;
+    int k = 0;  // A matrix inline index
+    for (int i = 0; i < minor_length; i++, k++) {
+      if (k % A->columns == current_column) k++;
+      if (k / A->columns == current_row) k += A->columns;
+      minor->matrix[0][i] = A->matrix[0][k];
+    }
+  }
+  return error;
+}
+
 /// @brief minor filling function
+/// @version v.2
 /// @param dest minor matrix
 /// @param src source matrix
 /// @param inline_position position of target element
-void minor_filling(matrix_t* dest, matrix_t* src, int inline_position) {
+void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
   int dest_length = dest->rows * dest->columns;
   int current_row = inline_position / src->columns;
   int current_column = inline_position % src->columns;
@@ -90,19 +116,15 @@ void minor_filling(matrix_t* dest, matrix_t* src, int inline_position) {
   }
 }
 
-/// @brief minor filling function
-/// @version v.2
-/// @param dest minor matrix
-/// @param src source matrix
-/// @param inline_position position of target element
-void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
+/// @version v.1
+void minor_filling_v1(matrix_t* dest, matrix_t* src, int inline_position) {
   int src_length = src->rows * src->columns;
   int current_row = inline_position / src->columns;
   int current_column = inline_position % src->columns;
   int src_i = 0;   // src matrix inline index
   int dest_i = 0;  // dest matrix inline index
   while (src_i < src_length) {
-    // coditions version 1:
+    // version 1 conditions:
     if (src_i / src->columns == current_row)
       src_i += src->columns;
     else if (src_i % src->columns == current_column)
@@ -123,7 +145,7 @@ void minor_filling_v2(matrix_t* dest, matrix_t* src, int inline_position) {
 void print_matrix(matrix_t* A) {
   for (int i = 0; i < A->rows; i++) {
     printf("\t");
-    for (int j = 0; j < A->columns; j++) printf(" %.0lf", A->matrix[i][j]);
+    for (int j = 0; j < A->columns; j++) printf(" %.1lf", A->matrix[i][j]);
     printf("\n");
   }
 }

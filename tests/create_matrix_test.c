@@ -2,18 +2,16 @@
 
 #include "../e_matrix.h"
 
-START_TEST(create_matrix_OK) {
+START_TEST(create_matrix_NULL_POINTER) {
   // Arrange
   int rows = 11;
   int cols = 1;
-  matrix_t test_matrix = {0};
+  matrix_t* test_matrix_ptr = NULL;
   // Act
-  int error = e_create_matrix(rows, cols, &test_matrix);
+  int error = e_create_matrix(rows, cols, test_matrix_ptr);
   // Assert
-  ck_assert_int_eq(error, OK);
-  ck_assert_int_eq(test_matrix.rows, rows);
-  ck_assert_int_eq(test_matrix.columns, cols);
-  e_remove_matrix(&test_matrix);
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+  e_remove_matrix(test_matrix_ptr);
 }
 END_TEST
 
@@ -43,13 +41,29 @@ START_TEST(create_matrix_INCORRECT_COLUMNS) {
 }
 END_TEST
 
+START_TEST(create_matrix_OK) {
+  // Arrange
+  int rows = 11;
+  int cols = 1;
+  matrix_t test_matrix = {0};
+  // Act
+  int error = e_create_matrix(rows, cols, &test_matrix);
+  // Assert
+  ck_assert_int_eq(error, OK);
+  ck_assert_int_eq(test_matrix.rows, rows);
+  ck_assert_int_eq(test_matrix.columns, cols);
+  e_remove_matrix(&test_matrix);
+}
+END_TEST
+
 Suite* create_matrix(void) {
   Suite* s = suite_create("create_matrix function suite");
-  TCase* create_matrix = tcase_create("create_matrix function tests");
 
-  tcase_add_test(create_matrix, create_matrix_OK);
+  TCase* create_matrix = tcase_create("create_matrix function tests");
+  tcase_add_test(create_matrix, create_matrix_NULL_POINTER);
   tcase_add_test(create_matrix, create_matrix_INCORRECT_ROWS);
   tcase_add_test(create_matrix, create_matrix_INCORRECT_COLUMNS);
+  tcase_add_test(create_matrix, create_matrix_OK);
   suite_add_tcase(s, create_matrix);
 
   return s;
