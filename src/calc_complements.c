@@ -12,6 +12,7 @@
 /// @param result result matrix pointer
 /// @return error code
 int e_calc_complements(matrix_t* A, matrix_t* result) {
+  matrix_init(result);
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;
   if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;

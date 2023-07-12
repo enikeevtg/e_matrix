@@ -5,6 +5,7 @@
 /// @param result result matrix pointer
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_inverse_matrix(matrix_t* A, matrix_t* result) {
+  matrix_init(result);
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;
   double det = 0.f;

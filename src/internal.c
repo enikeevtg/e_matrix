@@ -5,6 +5,12 @@
 
 #include "../e_matrix.h"
 
+void matrix_init(matrix_t* A) {
+  A->matrix = NULL;
+  A->rows = 0;
+  A->columns = 0;
+}
+
 /// @brief matrix filling
 /// @param rows
 /// @param columns
@@ -55,6 +61,7 @@ int valid_matrix(matrix_t* A) {
 /// @param mode summation or subtitution toggle
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode) {
+  matrix_init(result);
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->rows != B->rows || A->columns != B->columns) return CALCULATION_ERROR;
   if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;

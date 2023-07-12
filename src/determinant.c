@@ -15,12 +15,11 @@ int e_determinant(matrix_t* A, double* result) {
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;
   int error = OK;
-  int size = A->rows;
 
-  if (size == 1) {
+  if (A->rows == 1) {
     *result = **(A->matrix);
   } else {
-    error = determinant_calculation(A, size, result);
+    error = determinant_calculation(A, A->rows, result);
   }
   return error;
 }

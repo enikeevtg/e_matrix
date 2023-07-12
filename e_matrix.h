@@ -49,6 +49,7 @@ int e_determinant(matrix_t* A, double* result);
 int e_inverse_matrix(matrix_t* A, matrix_t* result);
 
 // INTERNAL
+void matrix_init(matrix_t* A);
 int matrix_filling(int rows, int columns, matrix_t* A, int mode);
 int valid_matrix(matrix_t* A);
 int sum_or_sub(matrix_t* A, matrix_t* B, matrix_t* result, int mode);

@@ -12,18 +12,18 @@
 /// @param result new matrix filled by nills
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_create_matrix(int rows, int columns, matrix_t* result) {
-  result->matrix = NULL;
-  // result->rows = 0;
-  // result->columns = 0;
+  matrix_init(result);
   if (rows < 1 || columns < 1) return INCORRECT_MATRIX;
 
   size_t array_size = rows * sizeof(double*) + rows * columns * sizeof(double);
   result->matrix = (double**)calloc(array_size, 1);
-  if (result->matrix == NULL) return CALCULATION_ERROR;
-
-  double* ptr_11 = (double*)(result->matrix + rows);
-  for (int i = 0; i < rows; i++) *(result->matrix + i) = ptr_11 + i * columns;
-  result->rows = rows;
-  result->columns = columns;
-  return OK;
+  int error = CALCULATION_ERROR;
+  if (result->matrix != NULL) {
+    error = OK;
+    double* ptr_11 = (double*)(result->matrix + rows);
+    for (int i = 0; i < rows; i++) *(result->matrix + i) = ptr_11 + i * columns;
+    result->rows = rows;
+    result->columns = columns;
+  }
+  return error;
 }
