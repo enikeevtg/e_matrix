@@ -19,11 +19,8 @@ int e_determinant(matrix_t* A, double* result) {
 }
 
 /// @brief matrix determinant calculation
-/// made as multiplication first row of the matrix
-/// with according algebraic complementations vector:
-/// [a1j] x [M.j]^T
 /// @version v.2
-/// @param A matrix 2x2 or greater
+/// @param A matrix 1x1 or greater
 /// @param size matrix size
 /// @param result determinant value
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
@@ -52,7 +49,7 @@ int det_calc(matrix_t* A, double* result) {
 /// with according algebraic complementations vector:
 /// [a1j] x [M.j]^T
 /// @version v.1
-/// @param A matrix 2x2 or greater
+/// @param A matrix 1x1 or greater
 /// @param size matrix size
 /// @param result determinant value
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2

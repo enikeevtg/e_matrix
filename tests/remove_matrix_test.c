@@ -1,37 +1,96 @@
 #include <check.h>
+#include <limits.h>
 
 #include "../e_matrix.h"
 
+START_TEST(remove_matrix_INCORRECT_STRUCT) {
+  // Arrange
+  matrix_t* matrix_A = NULL;
+  // Act
+  int error = e_remove_matrix(matrix_A);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
+START_TEST(remove_matrix_INCORRECT_MATRIX) {
+  // Arrange
+  int rows_A = 11;
+  int cols_A = 11;
+  matrix_t matrix_A = {NULL, rows_A, cols_A};
+  // Act
+  int error = e_remove_matrix(&matrix_A);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
+START_TEST(remove_matrix_INCORRECT_ROWS_A_0) {
+  // Arrange
+  int rows_A = 0;
+  int cols_A = 11;
+  matrix_t matrix_A = {NULL, rows_A, cols_A};
+  matrix_A.matrix = (double**)calloc(1, sizeof(double*));
+  // Act
+  int error = e_remove_matrix(&matrix_A);
+  if (matrix_A.matrix) free(matrix_A.matrix);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
+START_TEST(remove_matrix_INCORRECT_ROWS_A_MIN) {
+  // Arrange
+  int rows_A = INT_MIN;
+  int cols_A = 11;
+  matrix_t matrix_A = {NULL, rows_A, cols_A};
+  matrix_A.matrix = (double**)calloc(1, sizeof(double*));
+  // Act
+  int error = e_remove_matrix(&matrix_A);
+  if (matrix_A.matrix) free(matrix_A.matrix);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
+START_TEST(remove_matrix_INCORRECT_COLUMNS_0) {
+  // Arrange
+  int rows_A = 11;
+  int cols_A = 0;
+  matrix_t matrix_A = {NULL, rows_A, cols_A};
+  matrix_A.matrix = (double**)calloc(1, sizeof(double*));
+  // Act
+  int error = e_remove_matrix(&matrix_A);
+  if (matrix_A.matrix) free(matrix_A.matrix);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
+START_TEST(remove_matrix_INCORRECT_COLUMNS_MIN) {
+  // Arrange
+  int rows_A = 11;
+  int cols_A = INT_MIN;
+  matrix_t matrix_A = {NULL, rows_A, cols_A};
+  matrix_A.matrix = (double**)calloc(1, sizeof(double*));
+  // Act
+  int error = e_remove_matrix(&matrix_A);
+  if (matrix_A.matrix) free(matrix_A.matrix);
+  // Assert
+  ck_assert_int_eq(error, INCORRECT_MATRIX);
+}
+END_TEST
+
 START_TEST(remove_matrix_OK) {
   // Arrange
-  int rows = 11;
-  int cols = 11;
-  matrix_t test_matrix = {0};
+  int rows_A = 11;
+  int cols_A = 11;
+  matrix_t matrix_A = {0};
   // Act
-  e_create_matrix(rows, cols, &test_matrix);
-  int error = e_remove_matrix(&test_matrix);
+  e_create_matrix(rows_A, cols_A, &matrix_A);
+  int error = e_remove_matrix(&matrix_A);
   // Assert
   ck_assert_int_eq(error, OK);
-}
-END_TEST
-
-START_TEST(remove_matrix_INCORRECT_ROWS) {
-  // Arrange
-  matrix_t test_matrix = {NULL, 0, 11};
-  // Act
-  int error = e_remove_matrix(&test_matrix);
-  // Assert
-  ck_assert_int_eq(error, INCORRECT_MATRIX);
-}
-END_TEST
-
-START_TEST(remove_matrix_INCORRECT_COLUMNS) {
-  // Arrange
-  matrix_t test_matrix = {NULL, 11, 0};
-  // Act
-  int error = e_remove_matrix(&test_matrix);
-  // Assert
-  ck_assert_int_eq(error, INCORRECT_MATRIX);
 }
 END_TEST
 
@@ -39,9 +98,13 @@ Suite* remove_matrix(void) {
   Suite* s = suite_create("remove_matrix function suite");
   TCase* remove_matrix = tcase_create("remove_matrix function tests");
 
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_STRUCT);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_MATRIX);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_ROWS_A_0);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_ROWS_A_MIN);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_COLUMNS_0);
+  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_COLUMNS_MIN);
   tcase_add_test(remove_matrix, remove_matrix_OK);
-  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_ROWS);
-  tcase_add_test(remove_matrix, remove_matrix_INCORRECT_COLUMNS);
   suite_add_tcase(s, remove_matrix);
 
   return s;
