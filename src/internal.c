@@ -32,6 +32,14 @@ int matrix_filling(int rows, int columns, matrix_t* A, int mode) {
   } else if (mode == NEG_SIMPLE_SEQUENCE_X2) {
     int i = -A->rows * A->columns;
     while (i++) A->matrix[0][-i] = 2 * (i - 1);
+  } else if (mode == POS_SIMPLE_SEQUENCE_T) {
+    double elem = 1.f;
+    for (int j = 0; j < columns; j++)
+      for (int i = 0; i < rows; i++, elem++) A->matrix[i][j] = elem;
+  } else if (mode == NEG_SIMPLE_SEQUENCE_T) {
+    double elem = 1.f;
+    for (int j = 0; j < columns; j++)
+      for (int i = 0; i < rows; i++, elem++) A->matrix[i][j] = -elem;
   } else {
     for (int i = 0; i < rows; i++)
       for (int j = 0; j < columns; j++) {

@@ -28,8 +28,10 @@ typedef struct matrix_struct {
 
 // filling modes
 #define NEG_SIMPLE_SEQUENCE_X2 -20
+#define NEG_SIMPLE_SEQUENCE_T -10
 #define NEG_SIMPLE_SEQUENCE -1
 #define POS_SIMPLE_SEQUENCE 1
+#define POS_SIMPLE_SEQUENCE_T 10
 #define POS_SIMPLE_SEQUENCE_X2 20
 #define SQUARES 2
 #define INDICES 3

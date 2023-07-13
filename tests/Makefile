@@ -10,7 +10,7 @@ TEST_FLAGS = -lcheck
 LIB = ../e_matrix.a
 TEST_TARGETS = create_matrix_test remove_matrix_test eq_matrix_test
 TEST_TARGETS += sum_matrix_test sub_matrix_test mult_number_test
-TEST_TARGETS += mult_matrix_test
+TEST_TARGETS += mult_matrix_test transpose_test
 
 ### log file
 LOG = __test__e_matrix.log
@@ -91,6 +91,16 @@ ut_mult: log_remove mult_matrix_test
 	@$(OPENLOG)
 
 mult_matrix_test: mult_matrix_test.c
+	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
+	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
+	@./$@ $(WRITELOG)
+	@rm -f $@
+
+### sub_matrix test
+ut_transp: log_remove transpose_test
+	@$(OPENLOG)
+
+transpose_test: transpose_test.c
 	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
 	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
 	@./$@ $(WRITELOG)
