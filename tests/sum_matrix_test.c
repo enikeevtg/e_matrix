@@ -359,7 +359,7 @@ START_TEST(pos_sum_sqr_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -393,7 +393,7 @@ START_TEST(pos_sum_sqr_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE_X2);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -427,7 +427,7 @@ START_TEST(pos_sum_rect_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -461,7 +461,7 @@ START_TEST(pos_sum_rect_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE_X2);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -497,7 +497,7 @@ START_TEST(neg_sum_sqr_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -531,7 +531,7 @@ START_TEST(neg_sum_sqr_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE_X2);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -565,7 +565,7 @@ START_TEST(neg_sum_rect_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -599,7 +599,7 @@ START_TEST(neg_sum_rect_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE_X2);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -635,7 +635,7 @@ START_TEST(nill_sum_sqr_matrix_OK) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 11;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};
@@ -669,7 +669,7 @@ START_TEST(nill_sum_rect_matrix_OK) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int rows_REF = 8;
   int cols_REF = 11;
   matrix_t matrix_REF = {0};

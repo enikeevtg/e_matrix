@@ -74,6 +74,9 @@ ut_compl: lib
 ut_det: lib
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_inv: lib
+	$(MAKE) -C $(TESTDIR) $@
+
 # SERVICE
 style:
 	clang-format --style=google -n e_matrix.h $(SRC) $(TESTDIR)*.c

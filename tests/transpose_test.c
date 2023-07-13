@@ -113,9 +113,9 @@ START_TEST(transpose_INCORRECT_COLS_MIN) {
 }
 END_TEST
 
-/*===========================positive result tests============================*/
+/*==========================non error result tests===========================*/
 
-START_TEST(pos_transp_sqr_matrix_OK_1) {
+START_TEST(sqr_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -143,7 +143,35 @@ START_TEST(pos_transp_sqr_matrix_OK_1) {
 }
 END_TEST
 
-START_TEST(pos_transp_rect_matrix_OK_2) {
+START_TEST(sqr_matrix_OK_2) {
+  // Arrange
+  // test_matrix
+  int rows = 11;
+  int cols = 11;
+  matrix_t test_matrix = {0};
+  matrix_filling(rows, cols, &test_matrix, NEG_SIMPLE_SEQUENCE);
+  // result matrix
+  matrix_t result_matrix = {0};
+  // reference matrix
+  int ref_rows = 11;
+  int ref_cols = 11;
+  matrix_t ref_matrix = {0};
+  matrix_filling(ref_rows, ref_cols, &ref_matrix, NEG_SIMPLE_SEQUENCE_T);
+
+  // Act
+  e_transpose(&test_matrix, &result_matrix);
+
+  // Assert
+  int match = e_eq_matrix(&result_matrix, &ref_matrix);
+  ck_assert_int_eq(match, SUCCESS);
+
+  e_remove_matrix(&test_matrix);
+  e_remove_matrix(&result_matrix);
+  e_remove_matrix(&ref_matrix);
+}
+END_TEST
+
+START_TEST(rect_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -171,7 +199,7 @@ START_TEST(pos_transp_rect_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(pos_transp_rect_matrix_OK_3) {
+START_TEST(rect_matrix_OK_2) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -199,37 +227,7 @@ START_TEST(pos_transp_rect_matrix_OK_3) {
 }
 END_TEST
 
-/*===========================negative result tests============================*/
-
-START_TEST(neg_transp_sqr_matrix_OK_1) {
-  // Arrange
-  // test_matrix
-  int rows = 11;
-  int cols = 11;
-  matrix_t test_matrix = {0};
-  matrix_filling(rows, cols, &test_matrix, NEG_SIMPLE_SEQUENCE);
-  // result matrix
-  matrix_t result_matrix = {0};
-  // reference matrix
-  int ref_rows = 11;
-  int ref_cols = 11;
-  matrix_t ref_matrix = {0};
-  matrix_filling(ref_rows, ref_cols, &ref_matrix, NEG_SIMPLE_SEQUENCE_T);
-
-  // Act
-  e_transpose(&test_matrix, &result_matrix);
-
-  // Assert
-  int match = e_eq_matrix(&result_matrix, &ref_matrix);
-  ck_assert_int_eq(match, SUCCESS);
-
-  e_remove_matrix(&test_matrix);
-  e_remove_matrix(&result_matrix);
-  e_remove_matrix(&ref_matrix);
-}
-END_TEST
-
-START_TEST(neg_transp_rect_matrix_OK_2) {
+START_TEST(rect_matrix_OK_3) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -257,7 +255,7 @@ START_TEST(neg_transp_rect_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(neg_transp_rect_matrix_OK_3) {
+START_TEST(rect_matrix_OK_4) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -298,19 +296,14 @@ Suite* transpose(void) {
   tcase_add_test(transpose_errors, transpose_INCORRECT_COLS_MIN);
   suite_add_tcase(s, transpose_errors);
 
-  TCase* transpose_positive =
-      tcase_create("transpose result > 0 function tests");
-  tcase_add_test(transpose_positive, pos_transp_sqr_matrix_OK_1);
-  tcase_add_test(transpose_positive, pos_transp_rect_matrix_OK_2);
-  tcase_add_test(transpose_positive, pos_transp_rect_matrix_OK_3);
-  suite_add_tcase(s, transpose_positive);
-
-  TCase* transpose_negative =
-      tcase_create("transpose result < 0 function tests");
-  tcase_add_test(transpose_negative, neg_transp_sqr_matrix_OK_1);
-  tcase_add_test(transpose_negative, neg_transp_rect_matrix_OK_2);
-  tcase_add_test(transpose_negative, neg_transp_rect_matrix_OK_3);
-  suite_add_tcase(s, transpose_negative);
+  TCase* transpose_tc = tcase_create("transpose function tests");
+  tcase_add_test(transpose_tc, sqr_matrix_OK_1);
+  tcase_add_test(transpose_tc, sqr_matrix_OK_2);
+  tcase_add_test(transpose_tc, rect_matrix_OK_1);
+  tcase_add_test(transpose_tc, rect_matrix_OK_2);
+  tcase_add_test(transpose_tc, rect_matrix_OK_3);
+  tcase_add_test(transpose_tc, rect_matrix_OK_4);
+  suite_add_tcase(s, transpose_tc);
 
   return s;
 }

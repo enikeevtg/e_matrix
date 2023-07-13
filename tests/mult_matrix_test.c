@@ -334,7 +334,7 @@ START_TEST(pos_mult_line_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 1;
   int ref_cols = 1;
   matrix_t ref_matrix = {0};
@@ -369,7 +369,7 @@ START_TEST(pos_mult_line_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
@@ -407,7 +407,7 @@ START_TEST(pos_mult_sqr_matrix_OK_3) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 2;
   int ref_cols = 2;
   matrix_t ref_matrix = {0};
@@ -445,7 +445,7 @@ START_TEST(pos_mult_sqr_matrix_OK_4) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
@@ -483,7 +483,7 @@ START_TEST(pos_mult_rect_matrix_OK_5) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 2;
   int ref_cols = 2;
   matrix_t ref_matrix = {0};
@@ -521,7 +521,7 @@ START_TEST(pos_mult_rect_matrix_OK_6) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
@@ -561,7 +561,7 @@ START_TEST(neg_mult_line_matrix_OK_1) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 1;
   int ref_cols = 1;
   matrix_t ref_matrix = {0};
@@ -596,7 +596,7 @@ START_TEST(neg_mult_line_matrix_OK_2) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
@@ -633,7 +633,7 @@ START_TEST(neg_mult_sqr_matrix_OK_3) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 2;
   int ref_cols = 2;
   matrix_t ref_matrix = {0};
@@ -671,7 +671,7 @@ START_TEST(neg_mult_sqr_matrix_OK_4) {
   matrix_filling(rows_B, cols_B, &matrix_B, NEG_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
@@ -710,7 +710,7 @@ START_TEST(neg_mult_rect_matrix_OK_5) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 2;
   int ref_cols = 2;
   matrix_t ref_matrix = {0};
@@ -748,7 +748,7 @@ START_TEST(neg_mult_rect_matrix_OK_6) {
   matrix_filling(rows_B, cols_B, &matrix_B, POS_SIMPLE_SEQUENCE);
   // result matrix
   matrix_t result_matrix = {0};
-  // matrix reference
+  // reference matrix
   int ref_rows = 3;
   int ref_cols = 3;
   matrix_t ref_matrix = {0};
