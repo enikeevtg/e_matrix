@@ -68,6 +68,9 @@ ut_mult: lib
 ut_transp: lib
 	$(MAKE) -C $(TESTDIR) $@
 
+ut_compl: lib
+	$(MAKE) -C $(TESTDIR) $@
+
 # SERVICE
 style:
 	clang-format --style=google -n e_matrix.h $(SRC) $(TESTDIR)*.c

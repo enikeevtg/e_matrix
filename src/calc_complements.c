@@ -22,7 +22,6 @@ int e_calc_complements(matrix_t* A, matrix_t* result) {
     int error = OK;
     int i = A->rows * A->columns;
     matrix_t minor_matrix = {0};
-    error = e_create_matrix(A->rows - 1, A->columns - 1, &minor_matrix);
     while (error == OK && i--) {
       error = create_minor(&minor_matrix, A, i);
       error = e_determinant(&minor_matrix, &result->matrix[0][i]);

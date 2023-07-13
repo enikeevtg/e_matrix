@@ -9,8 +9,9 @@ TEST_FLAGS = -lcheck
 # FILENAMES
 LIB = ../e_matrix.a
 TEST_TARGETS = create_matrix_test remove_matrix_test eq_matrix_test
-TEST_TARGETS += sum_matrix_test sub_matrix_test mult_number_test
-TEST_TARGETS += mult_matrix_test transpose_test
+TEST_TARGETS += sum_matrix_test sub_matrix_test
+TEST_TARGETS += mult_number_test mult_matrix_test
+TEST_TARGETS += transpose_test calc_complements_test
 
 ### log file
 LOG = __test__e_matrix.log
@@ -76,7 +77,7 @@ sub_matrix_test: sub_matrix_test.c
 	@./$@ $(WRITELOG)
 	@rm -f $@
 
-### sub_matrix test
+### mult_number test
 ut_scalex: log_remove mult_number_test
 	@$(OPENLOG)
 
@@ -86,7 +87,7 @@ mult_number_test: mult_number_test.c
 	@./$@ $(WRITELOG)
 	@rm -f $@
 
-### sub_matrix test
+### mult_matrix test
 ut_mult: log_remove mult_matrix_test
 	@$(OPENLOG)
 
@@ -96,11 +97,21 @@ mult_matrix_test: mult_matrix_test.c
 	@./$@ $(WRITELOG)
 	@rm -f $@
 
-### sub_matrix test
+### transpose test
 ut_transp: log_remove transpose_test
 	@$(OPENLOG)
 
 transpose_test: transpose_test.c
+	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
+	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
+	@./$@ $(WRITELOG)
+	@rm -f $@
+
+### calc_complemets test
+ut_compl: log_remove calc_complements_test
+	@$(OPENLOG)
+
+calc_complements_test: calc_complements_test.c
 	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
 	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
 	@./$@ $(WRITELOG)

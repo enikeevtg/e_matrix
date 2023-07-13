@@ -375,8 +375,9 @@ START_TEST(pos_mult_line_matrix_OK_2) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {1.f, 2.f, 3.f, 2.f, 4.f, 6.f, 3.f, 6.f, 9.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -412,8 +413,9 @@ START_TEST(pos_mult_sqr_matrix_OK_3) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[4] = {7.f, 10.f, 15.f, 22.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -449,8 +451,9 @@ START_TEST(pos_mult_sqr_matrix_OK_4) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {30.f, 36.f, 42.f, 66.f, 81.f, 96.f, 102.f, 126.f, 150.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -486,8 +489,9 @@ START_TEST(pos_mult_rect_matrix_OK_5) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[4] = {22.f, 28.f, 49.f, 64.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -523,8 +527,9 @@ START_TEST(pos_mult_rect_matrix_OK_6) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {9.f, 12.f, 15.f, 19.f, 26.f, 33.f, 29.f, 40.f, 51.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -597,8 +602,8 @@ START_TEST(neg_mult_line_matrix_OK_2) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {-1.f, -2.f, -3.f, -2.f, -4.f, -6.f, -3.f, -6.f, -9.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -634,8 +639,9 @@ START_TEST(neg_mult_sqr_matrix_OK_3) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[4] = {-7.f, -10.f, -15.f, -22.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -672,8 +678,9 @@ START_TEST(neg_mult_sqr_matrix_OK_4) {
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {-30.f, -36.f,  -42.f,  -66.f, -81.f,
                    -96.f, -102.f, -126.f, -150.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -709,8 +716,9 @@ START_TEST(neg_mult_rect_matrix_OK_5) {
   matrix_t ref_matrix = {0};
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[4] = {-22.f, -28.f, -49.f, -64.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
@@ -747,8 +755,9 @@ START_TEST(neg_mult_rect_matrix_OK_6) {
   e_create_matrix(ref_rows, ref_cols, &ref_matrix);
   double tmp[9] = {-9.f,  -12.f, -15.f, -19.f, -26.f,
                    -33.f, -29.f, -40.f, -51.f};
-  for (int i = 0; i < ref_rows * ref_cols; i++)
-    (*ref_matrix.matrix)[i] = tmp[i];
+  int i = ref_rows * ref_cols;
+  while (i--) (*ref_matrix.matrix)[i] = tmp[i];
+  (*ref_matrix.matrix)[i] = tmp[i];
 
   // Act
   e_mult_matrix(&matrix_A, &matrix_B, &result_matrix);
