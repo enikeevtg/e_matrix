@@ -1,4 +1,6 @@
-#include "test.h"
+#include <check.h>
+
+#include "../e_matrix.h"
 
 START_TEST(eq_matrix_SUCCESS) {
   // Arrange
@@ -95,4 +97,19 @@ Suite* eq_matrix(void) {
   suite_add_tcase(s, eq_matrix);
 
   return s;
+}
+
+int main(void) {
+  Suite* eq_matrix_suite = eq_matrix();
+  SRunner* runner = srunner_create(eq_matrix_suite);
+
+  srunner_run_all(runner, CK_NORMAL);
+  int tests_count = srunner_ntests_run(runner);
+  int failed = srunner_ntests_failed(runner);
+  srunner_free(runner);
+
+  printf("\033[0;32m\tSUCCESS: %d\n", tests_count - failed);
+  printf("\033[0;31m\tFAILED: %d\n", failed);
+
+  return failed ? 1 : 0;
 }

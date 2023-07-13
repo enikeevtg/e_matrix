@@ -1,4 +1,7 @@
-#include "test.h"
+#include <check.h>
+#include <limits.h>
+
+#include "../e_matrix.h"
 
 /*================================error tests=================================*/
 
@@ -303,4 +306,19 @@ Suite* transpose(void) {
   suite_add_tcase(s, transpose_tc);
 
   return s;
+}
+
+int main(void) {
+  Suite* transpose_suite = transpose();
+  SRunner* runner = srunner_create(transpose_suite);
+
+  srunner_run_all(runner, CK_NORMAL);
+  int tests_count = srunner_ntests_run(runner);
+  int failed = srunner_ntests_failed(runner);
+  srunner_free(runner);
+
+  printf("\033[0;32m\tSUCCESS: %d\n", tests_count - failed);
+  printf("\033[0;31m\tFAILED: %d\n", failed);
+
+  return failed ? 1 : 0;
 }

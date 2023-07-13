@@ -19,7 +19,9 @@ int e_inverse_matrix(matrix_t* A, matrix_t* result) {
   if (!error && A->rows > 1) {
     if (fabs(det) >= PRECISION) {  // det != 0, so matrix has an inverse
       matrix_t complemets_matrix = {0};
+      error = e_create_matrix(A->rows, A->columns, &complemets_matrix);
       matrix_t transpose_matrix = {0};
+      error = e_create_matrix(A->rows, A->columns, &transpose_matrix);
       if (!error) error = e_calc_complements(A, &complemets_matrix);
       if (!error) error = e_transpose(&complemets_matrix, &transpose_matrix);
       if (!error) error = e_mult_number(&transpose_matrix, 1 / det, result);

@@ -1,4 +1,6 @@
-#include "test.h"
+#include <check.h>
+
+#include "../e_matrix.h"
 
 START_TEST(create_matrix_INCORRECT_STRUCT) {
   // Arrange
@@ -65,4 +67,19 @@ Suite* create_matrix(void) {
   suite_add_tcase(s, create_matrix);
 
   return s;
+}
+
+int main(void) {
+  Suite* create_matrix_suite = create_matrix();
+  SRunner* runner = srunner_create(create_matrix_suite);
+
+  srunner_run_all(runner, CK_NORMAL);
+  int tests_count = srunner_ntests_run(runner);
+  int failed = srunner_ntests_failed(runner);
+  srunner_free(runner);
+
+  printf("\033[0;32m\tSUCCESS: %d\n", tests_count - failed);
+  printf("\033[0;31m\tFAILED: %d\n", failed);
+
+  return failed ? 1 : 0;
 }
