@@ -11,7 +11,7 @@ LIB = ../e_matrix.a
 TEST_TARGETS = create_matrix_test remove_matrix_test eq_matrix_test
 TEST_TARGETS += sum_matrix_test sub_matrix_test
 TEST_TARGETS += mult_number_test mult_matrix_test
-TEST_TARGETS += transpose_test calc_complements_test
+TEST_TARGETS += transpose_test calc_complements_test determinant_test
 
 ### log file
 LOG = __test__e_matrix.log
@@ -112,6 +112,16 @@ ut_compl: log_remove calc_complements_test
 	@$(OPENLOG)
 
 calc_complements_test: calc_complements_test.c
+	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
+	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
+	@./$@ $(WRITELOG)
+	@rm -f $@
+
+### determinant test
+ut_det: log_remove determinant_test
+	@$(OPENLOG)
+
+determinant_test: determinant_test.c
 	@echo "\n\033[0;33m$<  \033[0m" $(WRITELOG)
 	@$(CC) $(CF) $(TEST_FLAGS) $< $(LIB) -o $@
 	@./$@ $(WRITELOG)
