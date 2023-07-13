@@ -296,8 +296,8 @@ END_TEST
 START_TEST(mult_matrix_CALC_ERROR) {
   // Arrange
   // matrix A
-  int rows_A = 8;
-  int cols_A = 11;
+  int rows_A = 11;
+  int cols_A = 8;
   matrix_t matrix_A = {0};
   matrix_filling(rows_A, cols_A, &matrix_A, POS_SIMPLE_SEQUENCE);
   // matrix B

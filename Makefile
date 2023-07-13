@@ -87,3 +87,8 @@ man: lib
 	@echo "manual tests start\033[0m"
 	@./a.out
 	@rm -rf a.out *.dSYM
+
+unit_test: lib
+	@$(CC) $(CF) -lcheck unit_tests.c $(TARGET) -o $@
+	@./$@
+	@rm -f $@

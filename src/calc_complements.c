@@ -12,19 +12,23 @@
 /// @param result result matrix pointer
 /// @return error code
 int e_calc_complements(matrix_t* A, matrix_t* result) {
-  matrix_init(result);
+  if (result) matrix_init(result);
   if (!valid_matrix(A)) return INCORRECT_MATRIX;
   if (A->rows != A->columns) return CALCULATION_ERROR;
   if (e_create_matrix(A->rows, A->columns, result)) return CALCULATION_ERROR;
 
-  int i = A->rows * A->columns;
-  int error = OK;
-  matrix_t minor_matrix = {0};
-  error = e_create_matrix(A->rows - 1, A->columns - 1, &minor_matrix);
-  while (error == OK && i--) {
-    error = create_minor(&minor_matrix, A, i);
-    error = e_determinant(&minor_matrix, &result->matrix[0][i]);
-    if (!error && !((i + 1) % 2)) result->matrix[0][i] *= -1;
+  **result->matrix = **A->matrix;
+  if (A->rows > 1) {
+    int error = OK;
+    int i = A->rows * A->columns;
+    matrix_t minor_matrix = {0};
+    error = e_create_matrix(A->rows - 1, A->columns - 1, &minor_matrix);
+    while (error == OK && i--) {
+      error = create_minor(&minor_matrix, A, i);
+      error = e_determinant(&minor_matrix, &result->matrix[0][i]);
+      if (!error && ((i / A->columns + i % A->columns) % 2))
+        result->matrix[0][i] *= -1;
+    }
   }
   return 0;
 }

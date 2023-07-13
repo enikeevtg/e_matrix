@@ -128,6 +128,16 @@ int main(int argc, char** argv) {
 
   // determinant
   printf("\033[33mdeterminant test\033[0m\nA =\n");
+
+  A.matrix[0][0] = 2;
+  A.matrix[0][1] = 3;
+  A.matrix[0][2] = 4;
+  A.matrix[1][0] = 2;
+  A.matrix[1][1] = 1;
+  A.matrix[1][2] = 3;
+  A.matrix[2][0] = 7;
+  A.matrix[2][1] = 2;
+  A.matrix[2][2] = 4;
   print_matrix(&A);
   double det = 0;
   e_determinant(&A, &det);
@@ -144,6 +154,38 @@ int main(int argc, char** argv) {
   // inverse
   printf("\033[33minverse test\033[0m\nA =\n");
   print_matrix(&A);
+  e_inverse_matrix(&A, &res);
+  printf("inverse =\n");
+  print_matrix(&res);
+
+  printf("A =\n");
+  e_create_matrix(4, 4, &A);
+  A.matrix[0][0] = 1;
+  A.matrix[0][1] = 2;
+  A.matrix[0][2] = 3;
+  A.matrix[0][3] = 4;
+  A.matrix[1][0] = 0;
+  A.matrix[1][1] = 4;
+  A.matrix[1][2] = 2;
+  A.matrix[1][3] = 1;
+  A.matrix[2][0] = 5;
+  A.matrix[2][1] = 2;
+  A.matrix[2][2] = 1;
+  A.matrix[2][3] = 3;
+  A.matrix[3][0] = 3;
+  A.matrix[3][1] = 7;
+  A.matrix[3][2] = 2;
+  A.matrix[3][3] = 4;
+  print_matrix(&A);
+
+  e_calc_complements(&A, &res);
+  printf("M. =\n");
+  print_matrix(&res);
+
+  // e_transpose(&res, &A);
+  // printf("M.^T =\n");
+  // print_matrix(&A);
+
   e_inverse_matrix(&A, &res);
   printf("inverse =\n");
   print_matrix(&res);
