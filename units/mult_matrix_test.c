@@ -815,7 +815,7 @@ int main(void) {
   srunner_free(runner);
 
   printf("\033[0;32m\tSUCCESS: %d\n", tests_count - failed);
-  printf("\033[0;31m\tFAILED: %d\n", failed);
+  printf("\033[0;31m\tFAILED: %d\n\033[0m", failed);
 
   return failed ? 1 : 0;
 }
