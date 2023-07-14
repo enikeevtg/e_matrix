@@ -1,0 +1,220 @@
+zeftyrst@va-c4 Valgrind % sh run.sh 
+Untagged: ereva/valgrind/matrix:latest
+Deleted: sha256:c6fae77829d71e99e325ee3ef52ca12727081f66610d56a7ae8593f16840f77a
+[+] Building 2.0s (10/10) FINISHED                                                                                                                              
+ => [internal] load build definition from Dockerfile                                                                                                       0.2s
+ => => transferring dockerfile: 36B                                                                                                                        0.1s
+ => [internal] load .dockerignore                                                                                                                          0.2s
+ => => transferring context: 2B                                                                                                                            0.1s
+ => [internal] load metadata for docker.io/library/ubuntu:22.04                                                                                            1.7s
+ => [internal] load build context                                                                                                                          0.0s
+ => => transferring context: 36.05kB                                                                                                                       0.0s
+ => [1/5] FROM docker.io/library/ubuntu:22.04@sha256:0bced47fffa3361afa981854fcabcd4577cd43cebbb808cea2b1f33a3dd7f508                                      0.0s
+ => CACHED [2/5] RUN apt-get -y update; apt-get -y install valgrind; apt-get -y install check; apt-get -y install gcc; apt-get -y install make; mkdir -p   0.0s
+ => CACHED [3/5] WORKDIR /usr/src/                                                                                                                         0.0s
+ => [4/5] COPY ./src /usr/src/                                                                                                                             0.0s
+ => [5/5] COPY ./materials/build/Valgrind/start.sh /usr/src                                                                                                0.0s
+ => exporting to image                                                                                                                                     0.0s
+ => => exporting layers                                                                                                                                    0.0s
+ => => writing image sha256:048147b8e5bd71192d488909996d9bee6732ccd33f20db2fdc4fdaff70e8b81b                                                               0.0s
+ => => naming to docker.io/ereva/valgrind/matrix                                                                                                           0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+gcc: objects compilation success
+ar: creating e_matrix.a
+ar rs: creating library e_matrix.a success
+==77== Memcheck, a memory error detector
+==77== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==77== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==77== Command: ./test
+==77== 
+
+Running suite(s): create_matrix function suite
+100%: Checks: 4, Failures: 0, Errors: 0
+
+
+Running suite(s): remove_matrix function suite
+100%: Checks: 7, Failures: 0, Errors: 0
+
+
+Running suite(s): eq_matrix function suite
+100%: Checks: 4, Failures: 0, Errors: 0
+
+
+Running suite(s): sum_matrix function suite
+100%: Checks: 24, Failures: 0, Errors: 0
+
+
+Running suite(s): sub_matrix function suite
+100%: Checks: 24, Failures: 0, Errors: 0
+
+
+Running suite(s): mult_number function suite
+100%: Checks: 32, Failures: 0, Errors: 0
+
+
+Running suite(s): mult_matrix function suite
+100%: Checks: 25, Failures: 0, Errors: 0
+
+
+Running suite(s): transpose function suite
+100%: Checks: 12, Failures: 0, Errors: 0
+
+
+Running suite(s): calc_complements function suite
+100%: Checks: 12, Failures: 0, Errors: 0
+
+
+Running suite(s): determinant function suite
+100%: Checks: 12, Failures: 0, Errors: 0
+
+
+Running suite(s): inverse_matrix function suite
+100%: Checks: 12, Failures: 0, Errors: 0
+
+        SUCCESS: 168
+        FAILED: 0
+==77== 
+==77== FILE DESCRIPTORS: 3 open (3 std) at exit.
+==77== 
+==77== HEAP SUMMARY:
+==77==     in use at exit: 8,672 bytes in 89 blocks
+==77==   total heap usage: 5,629 allocs, 5,540 frees, 2,536,426 bytes allocated
+==77== 
+==77== 48 bytes in 1 blocks are definitely lost in loss record 1 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213CA: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x1125E8: inverse_matrix_OK_2_fn (inverse_matrix_test.c:204)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 48 bytes in 1 blocks are definitely lost in loss record 2 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213F8: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x1125E8: inverse_matrix_OK_2_fn (inverse_matrix_test.c:204)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 64 bytes in 4 blocks are definitely lost in loss record 3 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x10F4C3: complements_matrix_OK_2_fn (calc_complements_test.c:209)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 64 bytes in 4 blocks are definitely lost in loss record 4 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x121414: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x1125E8: inverse_matrix_OK_2_fn (inverse_matrix_test.c:204)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 96 bytes in 1 blocks are definitely lost in loss record 5 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213CA: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x11294D: inverse_matrix_OK_3_fn (inverse_matrix_test.c:238)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 96 bytes in 1 blocks are definitely lost in loss record 6 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213F8: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x11294D: inverse_matrix_OK_3_fn (inverse_matrix_test.c:238)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 160 bytes in 1 blocks are definitely lost in loss record 7 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213CA: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x112D9C: inverse_matrix_OK_4_fn (inverse_matrix_test.c:274)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 160 bytes in 1 blocks are definitely lost in loss record 8 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x1213F8: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x112D9C: inverse_matrix_OK_4_fn (inverse_matrix_test.c:274)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 432 bytes in 9 blocks are definitely lost in loss record 9 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x10F71B: complements_matrix_OK_3_fn (calc_complements_test.c:240)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 432 bytes in 9 blocks are definitely lost in loss record 10 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x121414: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x11294D: inverse_matrix_OK_3_fn (inverse_matrix_test.c:238)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 1,536 bytes in 16 blocks are definitely lost in loss record 11 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x10F8A8: complements_matrix_OK_4_fn (calc_complements_test.c:268)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 1,536 bytes in 16 blocks are definitely lost in loss record 12 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x121414: e_inverse_matrix (in /usr/src/test)
+==77==    by 0x112D9C: inverse_matrix_OK_4_fn (inverse_matrix_test.c:274)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== 4,000 bytes in 25 blocks are definitely lost in loss record 13 of 13
+==77==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==77==    by 0x1208CF: e_create_matrix (in /usr/src/test)
+==77==    by 0x121185: create_minor (in /usr/src/test)
+==77==    by 0x120794: e_calc_complements (in /usr/src/test)
+==77==    by 0x10F14C: complements_matrix_OK_0_fn (calc_complements_test.c:150)
+==77==    by 0x124190: tcase_run_tfun_nofork (in /usr/src/test)
+==77==    by 0x12466E: srunner_run_tagged (in /usr/src/test)
+==77==    by 0x11F452: main (test.c:17)
+==77== 
+==77== LEAK SUMMARY:
+==77==    definitely lost: 8,672 bytes in 89 blocks
+==77==    indirectly lost: 0 bytes in 0 blocks
+==77==      possibly lost: 0 bytes in 0 blocks
+==77==    still reachable: 0 bytes in 0 blocks
+==77==         suppressed: 0 bytes in 0 blocks
+==77== 
+==77== For lists of detected and suppressed errors, rerun with: -s
+==77== ERROR SUMMARY: 13 errors from 13 contexts (suppressed: 0 from 0)
+zeftyrst@va-c4 Valgrind % 

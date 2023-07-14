@@ -12,7 +12,7 @@
 /// @param result result matrix pointer
 /// @return error code: OK 0, INCORRECT_MATRIX 1, CALCULATION_ERROR 2
 int e_mult_matrix(matrix_t* A, matrix_t* B, matrix_t* result) {
-  matrix_init(result);
+  if (result) matrix_init(result);
   if (!valid_matrix(A) || !valid_matrix(B)) return INCORRECT_MATRIX;
   if (A->columns != B->rows) return CALCULATION_ERROR;
   if (e_create_matrix(A->rows, B->columns, result)) return CALCULATION_ERROR;

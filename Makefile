@@ -63,7 +63,11 @@ test: lib
 	@$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(ASAN) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE)
 	$(LEAKS) ./$(TEST_EXE)
 
-valgrind: clean
+valgrind: lib
+	@$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(ASAN) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE)
+	CK_FORK=no valgrind --vgdb=no --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=RESULT_VALGRIND.txt ./$(TEST_EXE)
+
+docker_valgrind: clean
 	cd ../materials/build/Valgrind/ && sh run.sh
 
 # TEST COVERAGE

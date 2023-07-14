@@ -121,7 +121,7 @@ END_TEST
 
 /*===========================positive result tests============================*/
 
-START_TEST(pos_mult_sqr_matrix_OK_1) {
+START_TEST(pos_mult_number_sqr_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -150,7 +150,7 @@ START_TEST(pos_mult_sqr_matrix_OK_1) {
 }
 END_TEST
 
-START_TEST(pos_mult_sqr_matrix_OK_2) {
+START_TEST(pos_mult_number_sqr_matrix_OK_2) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -179,7 +179,7 @@ START_TEST(pos_mult_sqr_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(pos_mult_sqr_matrix_OK_3) {
+START_TEST(pos_mult_number_sqr_matrix_OK_3) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -208,7 +208,7 @@ START_TEST(pos_mult_sqr_matrix_OK_3) {
 }
 END_TEST
 
-START_TEST(pos_mult_sqr_matrix_OK_4) {
+START_TEST(pos_mult_number_sqr_matrix_OK_4) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -237,7 +237,7 @@ START_TEST(pos_mult_sqr_matrix_OK_4) {
 }
 END_TEST
 
-START_TEST(pos_mult_sqr_matrix_OK_5) {
+START_TEST(pos_mult_number_sqr_matrix_OK_5) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -266,7 +266,7 @@ START_TEST(pos_mult_sqr_matrix_OK_5) {
 }
 END_TEST
 
-START_TEST(pos_mult_sqr_matrix_OK_6) {
+START_TEST(pos_mult_number_sqr_matrix_OK_6) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -295,7 +295,7 @@ START_TEST(pos_mult_sqr_matrix_OK_6) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_1) {
+START_TEST(pos_mult_number_rect_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -324,7 +324,7 @@ START_TEST(pos_mult_rect_matrix_OK_1) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_2) {
+START_TEST(pos_mult_number_rect_matrix_OK_2) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -353,7 +353,7 @@ START_TEST(pos_mult_rect_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_3) {
+START_TEST(pos_mult_number_rect_matrix_OK_3) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -382,7 +382,7 @@ START_TEST(pos_mult_rect_matrix_OK_3) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_4) {
+START_TEST(pos_mult_number_rect_matrix_OK_4) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -411,7 +411,7 @@ START_TEST(pos_mult_rect_matrix_OK_4) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_5) {
+START_TEST(pos_mult_number_rect_matrix_OK_5) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -440,7 +440,7 @@ START_TEST(pos_mult_rect_matrix_OK_5) {
 }
 END_TEST
 
-START_TEST(pos_mult_rect_matrix_OK_6) {
+START_TEST(pos_mult_number_rect_matrix_OK_6) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -471,7 +471,7 @@ END_TEST
 
 /*===========================negative result tests============================*/
 
-START_TEST(neg_mult_sqr_matrix_OK_1) {
+START_TEST(neg_mult_number_sqr_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -500,7 +500,7 @@ START_TEST(neg_mult_sqr_matrix_OK_1) {
 }
 END_TEST
 
-START_TEST(neg_mult_sqr_matrix_OK_2) {
+START_TEST(neg_mult_number_sqr_matrix_OK_2) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -529,7 +529,7 @@ START_TEST(neg_mult_sqr_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(neg_mult_sqr_matrix_OK_3) {
+START_TEST(neg_mult_number_sqr_matrix_OK_3) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -558,7 +558,7 @@ START_TEST(neg_mult_sqr_matrix_OK_3) {
 }
 END_TEST
 
-START_TEST(neg_mult_sqr_matrix_OK_4) {
+START_TEST(neg_mult_number_sqr_matrix_OK_4) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -587,7 +587,7 @@ START_TEST(neg_mult_sqr_matrix_OK_4) {
 }
 END_TEST
 
-START_TEST(neg_mult_sqr_matrix_OK_5) {
+START_TEST(neg_mult_number_sqr_matrix_OK_5) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -616,7 +616,7 @@ START_TEST(neg_mult_sqr_matrix_OK_5) {
 }
 END_TEST
 
-START_TEST(neg_mult_sqr_matrix_OK_6) {
+START_TEST(neg_mult_number_sqr_matrix_OK_6) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -645,7 +645,7 @@ START_TEST(neg_mult_sqr_matrix_OK_6) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_1) {
+START_TEST(neg_mult_number_rect_matrix_OK_1) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -674,7 +674,7 @@ START_TEST(neg_mult_rect_matrix_OK_1) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_2) {
+START_TEST(neg_mult_number_rect_matrix_OK_2) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -703,7 +703,7 @@ START_TEST(neg_mult_rect_matrix_OK_2) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_3) {
+START_TEST(neg_mult_number_rect_matrix_OK_3) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -732,7 +732,7 @@ START_TEST(neg_mult_rect_matrix_OK_3) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_4) {
+START_TEST(neg_mult_number_rect_matrix_OK_4) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -761,7 +761,7 @@ START_TEST(neg_mult_rect_matrix_OK_4) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_5) {
+START_TEST(neg_mult_number_rect_matrix_OK_5) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -790,7 +790,7 @@ START_TEST(neg_mult_rect_matrix_OK_5) {
 }
 END_TEST
 
-START_TEST(neg_mult_rect_matrix_OK_6) {
+START_TEST(neg_mult_number_rect_matrix_OK_6) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -821,7 +821,7 @@ END_TEST
 
 /*===========================nill result tests============================*/
 
-START_TEST(nill_mult_sqr_matrix_OK) {
+START_TEST(nill_mult_number_sqr_matrix_OK) {
   // Arrange
   // test_matrix
   int rows = 11;
@@ -850,7 +850,7 @@ START_TEST(nill_mult_sqr_matrix_OK) {
 }
 END_TEST
 
-START_TEST(nill_mult_rect_matrix_OK) {
+START_TEST(nill_mult_number_rect_matrix_OK) {
   // Arrange
   // test_matrix
   int rows = 8;
@@ -894,39 +894,39 @@ Suite* mult_number(void) {
 
   TCase* mult_number_positive =
       tcase_create("mult_number result > 0 function tests");
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_1);
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_2);
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_3);
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_4);
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_5);
-  tcase_add_test(mult_number_positive, pos_mult_sqr_matrix_OK_6);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_1);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_2);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_3);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_4);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_5);
-  tcase_add_test(mult_number_positive, pos_mult_rect_matrix_OK_6);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_1);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_2);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_3);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_4);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_5);
+  tcase_add_test(mult_number_positive, pos_mult_number_sqr_matrix_OK_6);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_1);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_2);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_3);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_4);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_5);
+  tcase_add_test(mult_number_positive, pos_mult_number_rect_matrix_OK_6);
   suite_add_tcase(s, mult_number_positive);
 
   TCase* mult_number_negative =
       tcase_create("mult_number result < 0 function tests");
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_1);
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_2);
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_3);
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_4);
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_5);
-  tcase_add_test(mult_number_negative, neg_mult_sqr_matrix_OK_6);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_1);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_2);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_3);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_4);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_5);
-  tcase_add_test(mult_number_negative, neg_mult_rect_matrix_OK_6);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_1);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_2);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_3);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_4);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_5);
+  tcase_add_test(mult_number_negative, neg_mult_number_sqr_matrix_OK_6);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_1);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_2);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_3);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_4);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_5);
+  tcase_add_test(mult_number_negative, neg_mult_number_rect_matrix_OK_6);
   suite_add_tcase(s, mult_number_negative);
 
   TCase* mult_number_0 = tcase_create("mult_number result == 0 function tests");
-  tcase_add_test(mult_number_0, nill_mult_sqr_matrix_OK);
-  tcase_add_test(mult_number_0, nill_mult_rect_matrix_OK);
+  tcase_add_test(mult_number_0, nill_mult_number_sqr_matrix_OK);
+  tcase_add_test(mult_number_0, nill_mult_number_rect_matrix_OK);
   suite_add_tcase(s, mult_number_0);
 
   return s;

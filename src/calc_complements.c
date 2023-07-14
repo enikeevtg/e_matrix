@@ -30,5 +30,5 @@ int e_calc_complements(matrix_t* A, matrix_t* result) {
       e_remove_matrix(&minor_matrix);
     }
   }
-  return 0;
+  return OK;
 }
