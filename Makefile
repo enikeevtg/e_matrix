@@ -5,11 +5,12 @@ AR = ar rs
 RAN = ranlib
 MK = mkdir -p
 MAKE = make
-LEAKS = CK_FORK=no leaks --atExit --
 OS := $(shell uname)
 ifeq ($(OS), Darwin)
+	LEAKS = CK_FORK=no leaks --atExit --
 	REPORT_OPEN = open
 else ifeq ($(OS), Linux)
+	LEAKS =
 	REPORT_OPEN = xdg-open
 endif
 
@@ -60,11 +61,11 @@ OBJ_SUCCESS:
 
 # TESTS
 test: lib
-	@$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(ASAN) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE)
+	@$(CC) $(CF) $(GCOV_FLAGS) $(ASAN) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE) $(TEST_FLAGS)
 	$(LEAKS) ./$(TEST_EXE)
 
 valgrind: lib
-	@$(CC) $(CF) $(TEST_FLAGS) $(GCOV_FLAGS) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE)
+	@$(CC) $(CF) $(GCOV_FLAGS) $(TESTS_SRC) $(TARGET) -o $(TEST_EXE) $(TEST_FLAGS)
 	CK_FORK=no valgrind --vgdb=no --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=RESULT_VALGRIND.txt ./$(TEST_EXE)
 
 docker_valgrind: clean
